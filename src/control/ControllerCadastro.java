@@ -15,6 +15,10 @@ public class ControllerCadastro {
         this.view = view;
     }
     
+    public void voltarCadastro(){
+        view.setVisible(false);
+    }
+    
     public void cadastrarPessoa(){
         String nome = view.getTxtNome().getText();
         String cpf = view.getTxtCpf().getText();
@@ -29,6 +33,7 @@ public class ControllerCadastro {
             PessoaDAO dao = new PessoaDAO(conn);
             dao.inserir(pessoa);
             JOptionPane.showMessageDialog(view, "Cadastrado Realizado!");
+            view.setVisible(false);
         } catch (SQLException e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(view, "Falha no Cadastrado!");
