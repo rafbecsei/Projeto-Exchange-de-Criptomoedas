@@ -24,12 +24,12 @@ public class LoginFrame extends javax.swing.JFrame {
         this.btEnter = btEnterLogin;
     }
 
-    public JLabel getLblCPF() {
-        return lblCPF;
+    public JLabel getLblCpf() {
+        return lblCpf;
     }
 
-    public void setLblCPF(JLabel lblCPF) {
-        this.lblCPF = lblCPF;
+    public void setLblCpf(JLabel lblCpf) {
+        this.lblCpf = lblCpf;
     }
 
     public JLabel getLblLogin() {
@@ -48,12 +48,12 @@ public class LoginFrame extends javax.swing.JFrame {
         this.lblSenha = lblSenha;
     }
 
-    public JTextField getTxtCPF() {
-        return txtCPF;
+    public JTextField getTxtCpf() {
+        return txtCpf;
     }
 
-    public void setTxtCPF(JTextField txtCPF) {
-        this.txtCPF = txtCPF;
+    public void setTxtCpf(JTextField txtCpf) {
+        this.txtCpf = txtCpf;
     }
 
     public JTextField getTxtSenha() {
@@ -78,13 +78,14 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         lblLogin = new javax.swing.JLabel();
-        lblCPF = new javax.swing.JLabel();
+        lblCpf = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
-        txtCPF = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         btEnter = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        itemCadastrar = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -92,17 +93,16 @@ public class LoginFrame extends javax.swing.JFrame {
 
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogin.setText("  LOGIN");
-        lblLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblCPF.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblCPF.setText("CPF:");
+        lblCpf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCpf.setText("CPF:");
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSenha.setText("Senha:");
 
-        txtCPF.addActionListener(new java.awt.event.ActionListener() {
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPFActionPerformed(evt);
+                txtCpfActionPerformed(evt);
             }
         });
 
@@ -114,6 +114,15 @@ public class LoginFrame extends javax.swing.JFrame {
         });
 
         jMenu1.setText("File");
+
+        itemCadastrar.setText("Cadastrar");
+        itemCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCadastrarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itemCadastrar);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -131,10 +140,10 @@ public class LoginFrame extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblSenha)
-                            .addComponent(lblCPF))
+                            .addComponent(lblCpf))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCPF)
+                            .addComponent(txtCpf)
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(176, 176, 176)
@@ -148,8 +157,8 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCPF)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCpf)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
@@ -162,13 +171,18 @@ public class LoginFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCPFActionPerformed
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     private void btEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnterActionPerformed
-        controller.loginUsuario();
+        controller.loginPessoa();
     }//GEN-LAST:event_btEnterActionPerformed
+
+    private void itemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarActionPerformed
+        CadastroFrame cf = new CadastroFrame();
+        cf.setVisible(true);
+    }//GEN-LAST:event_itemCadastrarActionPerformed
 
     
     
@@ -176,13 +190,14 @@ public class LoginFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnter;
+    private javax.swing.JMenuItem itemCadastrar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JLabel lblCPF;
+    private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
-    private javax.swing.JTextField txtCPF;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
