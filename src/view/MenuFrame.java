@@ -1,7 +1,8 @@
 package view;
 
-import control.ControllerLogin;
 import control.ControllerMenu;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import model.Pessoa;
 
 /**
@@ -13,9 +14,8 @@ public class MenuFrame extends javax.swing.JFrame {
     
     public MenuFrame(Pessoa pessoa) {
         initComponents();
-        controller = new ControllerMenu(this);
+        controller = new ControllerMenu(this, pessoa);
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,7 +24,7 @@ public class MenuFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         lblLogin = new javax.swing.JLabel();
-        btConsultaSado = new javax.swing.JButton();
+        btConsultaSaldo = new javax.swing.JButton();
         btConsultaExtrato = new javax.swing.JButton();
         btDeposito = new javax.swing.JButton();
         btSaque = new javax.swing.JButton();
@@ -52,10 +52,10 @@ public class MenuFrame extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogin.setText("                                     MENU                                  ");
 
-        btConsultaSado.setText("CONSULTAR SALDO");
-        btConsultaSado.addActionListener(new java.awt.event.ActionListener() {
+        btConsultaSaldo.setText("CONSULTAR SALDO");
+        btConsultaSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultaSadoActionPerformed(evt);
+                btConsultaSaldoActionPerformed(evt);
             }
         });
 
@@ -116,7 +116,7 @@ public class MenuFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btConsultaSado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btConsultaSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btConsultaExtrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btDeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btSaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,7 +134,7 @@ public class MenuFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(btConsultaSado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btConsultaSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btConsultaExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -155,9 +155,9 @@ public class MenuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btConsultaSadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaSadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btConsultaSadoActionPerformed
+    private void btConsultaSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaSaldoActionPerformed
+        controller.saldoFrame();
+    }//GEN-LAST:event_btConsultaSaldoActionPerformed
 
     private void btConsultaExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaExtratoActionPerformed
         // TODO add your handling code here:
@@ -196,13 +196,12 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairActionPerformed
 
     private ControllerMenu controller;
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtualiza;
     private javax.swing.JButton btCompra;
     private javax.swing.JButton btConsultaExtrato;
-    private javax.swing.JButton btConsultaSado;
+    private javax.swing.JButton btConsultaSaldo;
     private javax.swing.JButton btDeposito;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSaque;
