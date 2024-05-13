@@ -1,6 +1,6 @@
 package view;
 
-import control.ControllerLogin;
+import controller.ControllerLogin;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -83,6 +83,7 @@ public class LoginFrame extends javax.swing.JFrame {
         txtCpf = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         btEnter = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itemCadastrar = new javax.swing.JMenuItem();
@@ -93,6 +94,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogin.setText("  LOGIN");
+        lblLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblCpf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblCpf.setText("CPF:");
@@ -110,6 +112,13 @@ public class LoginFrame extends javax.swing.JFrame {
         btEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEnterActionPerformed(evt);
+            }
+        });
+
+        btSair.setText("SAIR");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
             }
         });
 
@@ -147,7 +156,9 @@ public class LoginFrame extends javax.swing.JFrame {
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(176, 176, 176)
-                        .addComponent(btEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                            .addComponent(btSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,9 +174,11 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(28, 28, 28)
+                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -184,12 +197,17 @@ public class LoginFrame extends javax.swing.JFrame {
         cf.setVisible(true);
     }//GEN-LAST:event_itemCadastrarActionPerformed
 
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btSairActionPerformed
+
     
     
     private ControllerLogin controller;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnter;
+    private javax.swing.JButton btSair;
     private javax.swing.JMenuItem itemCadastrar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;

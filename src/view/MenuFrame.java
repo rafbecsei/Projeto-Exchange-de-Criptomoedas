@@ -1,9 +1,8 @@
 package view;
 
-import control.ControllerMenu;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import model.Pessoa;
+import controller.ControllerMenu;
+import model.Investidor;
+//import model.Pessoa;
 
 /**
  *
@@ -11,11 +10,14 @@ import model.Pessoa;
  */
 
 public class MenuFrame extends javax.swing.JFrame {
+    private LoginFrame lf;
     
-    public MenuFrame(Pessoa pessoa) {
+    public MenuFrame(LoginFrame lf) {
         initComponents();
-        controller = new ControllerMenu(this, pessoa);
+        controller = new ControllerMenu();
+        this.lf = lf;
     }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -51,6 +53,7 @@ public class MenuFrame extends javax.swing.JFrame {
 
         lblLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogin.setText("                                     MENU                                  ");
+        lblLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btConsultaSaldo.setText("CONSULTAR SALDO");
         btConsultaSaldo.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +104,7 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
-        btSair.setText("SAIR");
+        btSair.setText("VOLTAR");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSairActionPerformed(evt);
@@ -156,15 +159,18 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConsultaSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaSaldoActionPerformed
-        controller.saldoFrame();
+        SenhaFrame sf = new SenhaFrame(lf);
+        sf.setVisible(true);
     }//GEN-LAST:event_btConsultaSaldoActionPerformed
 
     private void btConsultaExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaExtratoActionPerformed
-        // TODO add your handling code here:
+        ExtratoFrame ef = new ExtratoFrame();
+        ef.setVisible(true);
     }//GEN-LAST:event_btConsultaExtratoActionPerformed
 
     private void btDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositoActionPerformed
-        // TODO add your handling code here:
+        DepositoFrame df = new DepositoFrame(investidor);
+        df.setVisible(true);
     }//GEN-LAST:event_btDepositoActionPerformed
 
     private void btSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaqueActionPerformed
@@ -192,7 +198,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        controller.sairMenu();
+        controller.voltarMenu();
     }//GEN-LAST:event_btSairActionPerformed
 
     private ControllerMenu controller;

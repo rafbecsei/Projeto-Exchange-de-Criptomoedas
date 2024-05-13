@@ -1,6 +1,6 @@
 package view;
 
-import control.ControllerCadastro;
+import controller.ControllerCadastro;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

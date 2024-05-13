@@ -1,9 +1,10 @@
 package view;
 
-import control.ControllerSaldo;
+import controller.ControllerSaldo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import model.Investidor;
 
 /**
  *
@@ -14,15 +15,11 @@ public class SaldoFrame extends javax.swing.JFrame {
 
     private ControllerSaldo controller;
     
-    public SaldoFrame(String nome, double real, 
-            double bitcoin, double ethereum, double ripple) {
+    public SaldoFrame(Investidor investidor){
         initComponents();
         controller = new ControllerSaldo(this); 
-        lblNomePessoa.setText(nome);
-        lblRealPessoa.setText(String.valueOf(real));
-        lblBitcoinPessoa.setText(String.valueOf(bitcoin));
-        lblEthereumPessoa.setText(String.valueOf(ethereum));
-        lblRipplePessoa.setText(String.valueOf(ripple));
+        lblNomePessoa.setText(investidor.getNome());
+        lblRealPessoa.setText(String.valueOf(investidor.getCarteira().getMoedas().get(0).getSaldo()));
     }
 
     public JButton getBtVoltar() {
