@@ -2,7 +2,6 @@ package view;
 
 import controller.ControllerMenu;
 import model.Investidor;
-//import model.Pessoa;
 
 /**
  *
@@ -10,12 +9,15 @@ import model.Investidor;
  */
 
 public class MenuFrame extends javax.swing.JFrame {
+    private MenuFrame view;
     private LoginFrame lf;
-    
-    public MenuFrame(LoginFrame lf) {
+    private Investidor investidor;
+
+    public MenuFrame(LoginFrame lf, Investidor investidor) {
         initComponents();
-        controller = new ControllerMenu();
+        controller = new ControllerMenu(this);
         this.lf = lf;
+        this.investidor = investidor;
     }
     
     
@@ -159,7 +161,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConsultaSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaSaldoActionPerformed
-        SenhaFrame sf = new SenhaFrame(lf);
+        SenhaSaldoFrame sf = new SenhaSaldoFrame(lf);
         sf.setVisible(true);
     }//GEN-LAST:event_btConsultaSaldoActionPerformed
 
@@ -174,7 +176,8 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btDepositoActionPerformed
 
     private void btSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaqueActionPerformed
-        // TODO add your handling code here:
+        SacarFrame sf = new SacarFrame(investidor);
+        sf.setVisible(true);
     }//GEN-LAST:event_btSaqueActionPerformed
 
     private void btCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraActionPerformed
@@ -190,7 +193,8 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaActionPerformed
-        // TODO add your handling code here:
+        AtualizarFrame af = new AtualizarFrame(investidor);
+        af.setVisible(true);
     }//GEN-LAST:event_btAtualizaActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -198,7 +202,9 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        controller.voltarMenu();
+        LoginFrame lf = new LoginFrame();
+        lf.setVisible(true);
+        controller.voltar();
     }//GEN-LAST:event_btSairActionPerformed
 
     private ControllerMenu controller;

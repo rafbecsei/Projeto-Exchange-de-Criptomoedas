@@ -19,7 +19,7 @@ public class InvestidorDAO {
     }
     
     public ResultSet consultarSenha(Investidor investidor) throws SQLException {
-        String sql = "SELECT * FROM investidor WHERE cpf = ? AND senha = ?";
+        String sql = "SELECT * FROM pessoa WHERE cpf = ? AND senha = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, investidor.getCpf());
         stmt.setString(2, investidor.getSenha());
@@ -63,6 +63,19 @@ public class InvestidorDAO {
     statement.setString(4, investidor.getSenha());
     statement.executeUpdate();
     conn.close();
+    }
+    
+    public void atualizardeposito(Investidor investidor) throws SQLException{
+        String sql = "update pessoa set \"real\" = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(0).getSaldo());
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        statement.execute();
+        conn.close();
+        
+    
+    
     }
     
     

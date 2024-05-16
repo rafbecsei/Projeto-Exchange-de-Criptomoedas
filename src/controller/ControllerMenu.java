@@ -1,7 +1,6 @@
 package controller;
 
 
-import view.LoginFrame;
 import view.MenuFrame;
 
 
@@ -13,13 +12,11 @@ import view.MenuFrame;
 public class ControllerMenu {
     private MenuFrame view;
     
-    public ControllerMenu() {
+    public ControllerMenu(MenuFrame view) {
         this.view = view;
     }
     
-    public void voltarMenu(){
-        LoginFrame e = new LoginFrame();
-        e.setVisible(true);
+    public void voltar(){
         view.setVisible(false);
     }
     

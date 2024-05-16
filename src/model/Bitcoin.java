@@ -5,7 +5,7 @@ package model;
  * @author Rafael Becsei
  */
 
-public class Bitcoin extends Moedas implements Tarifa {
+public class Bitcoin extends Moedas implements Tarifação {
     private static final double cotacao = 0.0000031;
     private static final double taxaCompra = 0.02;
     private static final double taxaVenda = 0.03;

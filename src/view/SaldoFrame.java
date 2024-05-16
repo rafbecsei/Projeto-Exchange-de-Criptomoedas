@@ -12,14 +12,19 @@ import model.Investidor;
  */
 
 public class SaldoFrame extends javax.swing.JFrame {
-
-    private ControllerSaldo controller;
     
     public SaldoFrame(Investidor investidor){
         initComponents();
         controller = new ControllerSaldo(this); 
         lblNomePessoa.setText(investidor.getNome());
-        lblRealPessoa.setText(String.valueOf(investidor.getCarteira().getMoedas().get(0).getSaldo()));
+        lblRealPessoa.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(0).getSaldo()));
+        lblBitcoinPessoa.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(1).getSaldo()));
+        lblEthereumPessoa.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(2).getSaldo()));
+        lblRipplePessoa.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(3).getSaldo()));
     }
 
     public JButton getBtVoltar() {
@@ -283,7 +288,7 @@ public class SaldoFrame extends javax.swing.JFrame {
         controller.voltarSaldo();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-//    private ControllerSaldo controller;
+    private ControllerSaldo controller;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btVoltar;

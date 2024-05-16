@@ -5,7 +5,7 @@ package model;
  * @author Rafael Becsei
  */
 
-public class Ripple extends Moedas implements Tarifa{
+public class Ripple extends Moedas implements Tarifação{
     private static final double cotacao = 0.38121;
     private static final double taxa = 0.01;
 

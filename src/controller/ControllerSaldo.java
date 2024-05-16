@@ -14,7 +14,6 @@ import view.SaldoFrame;
 public class ControllerSaldo {
     private SaldoFrame view;
     private Investidor investidor;
-//    Nao sei se ta certo ^
     
     public ControllerSaldo(SaldoFrame view) {
         this.view = view;
