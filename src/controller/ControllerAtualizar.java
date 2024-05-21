@@ -54,7 +54,8 @@ public class ControllerAtualizar {
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.consultarSenha(investidor);
-            if(res.next()){   
+            if(res.next()){
+                
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
@@ -73,11 +74,18 @@ public class ControllerAtualizar {
                 
                 dao.atualizaCotacao(investidor);
                 
+                JOptionPane.showMessageDialog(view, "Cotação Atualizada");
+                
+                view.getLblcotacaoBitAtual().setText(String.valueOf(cotacaoBit));
+                view.getLblcotacaoEthAtual().setText(String.valueOf(cotacaoEth));
+                view.getLblcotacaoRipAtual().setText(String.valueOf(cotacaoRip));
+                
+                
             } else {
-                JOptionPane.showMessageDialog(view, "Erro!");
+                JOptionPane.showMessageDialog(view, "Erro");
             }
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(view, "Erro de conexão!");
+            JOptionPane.showMessageDialog(view, "Erro de conexão");
         }
     }
     

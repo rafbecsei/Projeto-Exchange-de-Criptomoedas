@@ -27,8 +27,12 @@ public class DepositoFrame extends javax.swing.JFrame {
         return controller;
     }
 
-    public void setController(ControllerDeposito controller) {
-        this.controller = controller;
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
     }
 
     public JButton getBtDepositar() {
@@ -144,6 +148,8 @@ public class DepositoFrame extends javax.swing.JFrame {
     }
 
     
+
+    
     
     
     
@@ -237,7 +243,7 @@ public class DepositoFrame extends javax.swing.JFrame {
         lblContaPessoa.setText("saldo");
 
         lblNovoSaldoPessoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNovoSaldoPessoa.setText("--");
+        lblNovoSaldoPessoa.setText("---");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -246,10 +252,10 @@ public class DepositoFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNomePessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblContaPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNovoSaldoPessoa))
-                .addContainerGap(312, Short.MAX_VALUE))
+                    .addComponent(lblContaPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNovoSaldoPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNomePessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,8 +328,6 @@ public class DepositoFrame extends javax.swing.JFrame {
 
     private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed
         controller.depositoReal();
-//        lblNovoSaldoPessoa.setText(String.valueOf(investidor.getCarteira()
-//                                               .getMoedas().get(0).getSaldo()));
     }//GEN-LAST:event_btDepositarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed

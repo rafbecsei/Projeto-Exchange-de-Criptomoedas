@@ -12,7 +12,6 @@ import model.Investidor;
  */
 
 public class SacarFrame extends javax.swing.JFrame {
-    private Investidor investidor;
     
     public SacarFrame(Investidor investidor) {
         initComponents();
@@ -93,6 +92,15 @@ public class SacarFrame extends javax.swing.JFrame {
     public void setTxtQuantiaSaque(JTextField txtquantiaSaque) {
         this.txtquantiaSaque = txtquantiaSaque;
     }
+
+    public JLabel getLblNovoSaldoPessoa() {
+        return lblNovoSaldoPessoa;
+    }
+
+    public void setLblNovoSaldoPessoa(JLabel lblNovoSaldoPessoa) {
+        this.lblNovoSaldoPessoa = lblNovoSaldoPessoa;
+    }
+    
     
     
 
@@ -119,6 +127,7 @@ public class SacarFrame extends javax.swing.JFrame {
 
         lblSaldo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblSaldo.setText("                                              SAQUE");
+        lblSaldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblValor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblValor.setText("VALOR:");
@@ -137,7 +146,7 @@ public class SacarFrame extends javax.swing.JFrame {
             }
         });
 
-        panelSaque.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        panelSaque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblPessoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPessoa.setText("INVESTIDOR:");
@@ -172,7 +181,7 @@ public class SacarFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblNomePessoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblNomePessoa.setText("nome");
@@ -181,7 +190,7 @@ public class SacarFrame extends javax.swing.JFrame {
         lblContaValorPessoa.setText("saldo");
 
         lblNovoSaldoPessoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNovoSaldoPessoa.setText("--");
+        lblNovoSaldoPessoa.setText("---");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,10 +199,10 @@ public class SacarFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNomePessoa)
-                    .addComponent(lblContaValorPessoa)
-                    .addComponent(lblNovoSaldoPessoa))
-                .addContainerGap(289, Short.MAX_VALUE))
+                    .addComponent(lblNovoSaldoPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblContaValorPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNomePessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,8 +263,6 @@ public class SacarFrame extends javax.swing.JFrame {
 
     private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
         controller.SaqueReal();
-//        lblNovoSaldoPessoa.setText(String.valueOf(investidor.getCarteira()
-//                                               .getMoedas().get(0).getSaldo()));
     }//GEN-LAST:event_btSacarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed

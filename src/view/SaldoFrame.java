@@ -25,6 +25,7 @@ public class SaldoFrame extends javax.swing.JFrame {
                                             .getMoedas().get(2).getSaldo()));
         lblRipplePessoa.setText(String.valueOf(investidor.getCarteira()
                                             .getMoedas().get(3).getSaldo()));
+        
     }
 
     public JButton getBtVoltar() {

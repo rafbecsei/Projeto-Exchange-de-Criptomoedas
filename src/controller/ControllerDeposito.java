@@ -41,7 +41,11 @@ public class ControllerDeposito {
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.atualizardeposito(investidor);
+            
             JOptionPane.showMessageDialog(view, "Depósito Realizado");
+            
+            view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
+             
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro no Depósito");
         }

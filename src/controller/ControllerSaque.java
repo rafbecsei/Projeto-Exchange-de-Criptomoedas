@@ -37,6 +37,7 @@ public class ControllerSaque {
             double NovoReal = Real - quantiaSacada;
             investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
             JOptionPane.showMessageDialog(view, "Saque Realizado");
+            view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
         }
         Conexao conexao = new Conexao();
         try{
