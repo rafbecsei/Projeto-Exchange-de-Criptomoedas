@@ -162,11 +162,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblBitcoinAtualizado" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="lblEthereumAtualizado" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblRippleAtualizado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblBitcoinAtualizado" max="32767" attributes="0"/>
+                      <Component id="lblEthereumAtualizado" pref="234" max="32767" attributes="0"/>
+                      <Component id="lblRippleAtualizado" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="176" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -248,6 +248,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="ATUALIZAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAtualizarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btVoltar">
       <Properties>

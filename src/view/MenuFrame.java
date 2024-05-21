@@ -166,7 +166,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btConsultaSaldoActionPerformed
 
     private void btConsultaExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultaExtratoActionPerformed
-        ExtratoFrame ef = new ExtratoFrame();
+        SenhaExtratoFrame ef = new SenhaExtratoFrame(lf);
         ef.setVisible(true);
     }//GEN-LAST:event_btConsultaExtratoActionPerformed
 
@@ -193,7 +193,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaActionPerformed
-        AtualizarFrame af = new AtualizarFrame(investidor);
+        AtualizarFrame af = new AtualizarFrame(investidor, lf);
         af.setVisible(true);
     }//GEN-LAST:event_btAtualizaActionPerformed
 

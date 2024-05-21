@@ -6,12 +6,11 @@ package model;
  */
 
 public class Bitcoin extends Moedas implements Tarifação {
-    private static final double cotacao = 0.0000031;
     private static final double taxaCompra = 0.02;
     private static final double taxaVenda = 0.03;
 
-    public Bitcoin() {
-        this(0); 
+    public Bitcoin(double saldo, double cotacao) {
+        super(saldo, cotacao);
     }
 
     public Bitcoin(double saldo) {
@@ -26,10 +25,6 @@ public class Bitcoin extends Moedas implements Tarifação {
     @Override
     public double getTaxaVenda() {
         return taxaVenda;
-    }
-
-    public double getCotacao() {
-        return cotacao;
     }
 }
 

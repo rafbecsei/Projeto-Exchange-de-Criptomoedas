@@ -6,19 +6,14 @@ package model;
  */
 
 public class Ripple extends Moedas implements Tarifação{
-    private static final double cotacao = 0.38121;
     private static final double taxa = 0.01;
 
-    public Ripple() {
-        this(0); 
+    public Ripple(double saldo, double cotacao) {
+        super(saldo, cotacao); 
     }
 
     public Ripple(double saldo) {
         super(saldo);
-    }
-
-    public double getCotacao() {
-        return cotacao;
     }
 
     @Override

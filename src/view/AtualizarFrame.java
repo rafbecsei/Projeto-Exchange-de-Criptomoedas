@@ -1,11 +1,16 @@
 package view;
 
+import DAO.Conexao;
+import DAO.InvestidorDAO;
 import controller.ControllerAtualizar;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Investidor;
-
 
 /**
  *
@@ -14,11 +19,36 @@ import model.Investidor;
 
 public class AtualizarFrame extends javax.swing.JFrame {
 
-    public AtualizarFrame(Investidor investidor) {
+    public AtualizarFrame(Investidor investidor, LoginFrame lf) {
         initComponents();
         controller = new ControllerAtualizar(this, investidor);
-//        lblBitcoinAtualizado.setText(String.valueOf(investidor.getCarteira()
-//                                            .getMoedas().get(1).getCotacao();));
+        Conexao conexao = new Conexao();
+        
+        try{
+            Connection conn = conexao.getConnection();
+            InvestidorDAO dao = new InvestidorDAO(conn);
+            ResultSet res = dao.consultarSenha(investidor);
+            if(res.next()){   
+                double cotacaoBit = res.getDouble("cotacaoBit");
+                double cotacaoEth = res.getDouble("cotacaoEth");
+                double cotacaoRip = res.getDouble("cotacaoRip");
+                
+                investidor.getCarteira().getMoedas().get(1).setCotacao(cotacaoBit);
+                investidor.getCarteira().getMoedas().get(2).setCotacao(cotacaoEth);
+                investidor.getCarteira().getMoedas().get(3).setCotacao(cotacaoRip);
+                lblBitcoinAtualizado.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(1).getCotacao()));
+                lblEthereumAtualizado.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(2).getCotacao()));
+                lblRippleAtualizado.setText(String.valueOf(investidor.getCarteira()
+                                            .getMoedas().get(3).getCotacao()));
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro!");
+            }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(this, "Erro de conexão!");
+        }
     }
 
     public ControllerAtualizar getController() {
@@ -28,6 +58,7 @@ public class AtualizarFrame extends javax.swing.JFrame {
     public void setController(ControllerAtualizar controller) {
         this.controller = controller;
     }
+    
 
     public JButton getBtAtualizar() {
         return btAtualizar;
@@ -157,8 +188,9 @@ public class AtualizarFrame extends javax.swing.JFrame {
 
         lblSaldo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblSaldo.setText("                            NOVA COTAÇÃO");
+        lblSaldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBitcoin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblBitcoin.setText("BITCOIN:");
@@ -193,7 +225,7 @@ public class AtualizarFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBitcoinAtualizado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblBitcoinAtualizado.setText("bitcoin");
@@ -211,10 +243,10 @@ public class AtualizarFrame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBitcoinAtualizado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEthereumAtualizado)
-                    .addComponent(lblRippleAtualizado))
-                .addContainerGap(176, Short.MAX_VALUE))
+                    .addComponent(lblBitcoinAtualizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblEthereumAtualizado, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                    .addComponent(lblRippleAtualizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +260,7 @@ public class AtualizarFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setText("CRIPTOMOEDAS");
 
@@ -247,6 +279,11 @@ public class AtualizarFrame extends javax.swing.JFrame {
         );
 
         btAtualizar.setText("ATUALIZAR");
+        btAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizarActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("VOLTAR");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -300,6 +337,10 @@ public class AtualizarFrame extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         controller.voltarAtualiza();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
+        controller.atualizaCotacao();
+    }//GEN-LAST:event_btAtualizarActionPerformed
 
     private ControllerAtualizar controller;
 

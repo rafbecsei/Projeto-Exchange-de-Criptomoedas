@@ -1,6 +1,6 @@
 package view;
 
-import controller.ControllerSenhaSaldo;
+import controller.ControllerSenhaExtrato;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -10,13 +10,29 @@ import javax.swing.JTextField;
  * @author Rafael Becsei
  */
 
-public class SenhaSaldoFrame extends javax.swing.JFrame {
+public class SenhaExtratoFrame extends javax.swing.JFrame {
     private LoginFrame lf;
     
-    public SenhaSaldoFrame(LoginFrame lf) {
+    public SenhaExtratoFrame(LoginFrame lf) {
         initComponents();
-        controller = new ControllerSenhaSaldo(this);
+        controller = new ControllerSenhaExtrato(this);
         this.lf = lf;
+    }
+
+    public LoginFrame getLf() {
+        return lf;
+    }
+
+    public void setLf(LoginFrame lf) {
+        this.lf = lf;
+    }
+
+    public ControllerSenhaExtrato getController() {
+        return controller;
+    }
+
+    public void setController(ControllerSenhaExtrato controller) {
+        this.controller = controller;
     }
 
     public JButton getBtSenha() {
@@ -27,12 +43,12 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
         this.btSenha = btSenha;
     }
 
-    public JLabel getLblSaldo() {
-        return lblSaldo;
+    public JButton getBtVoltar() {
+        return btVoltar;
     }
 
-    public void setLblSaldo(JLabel lblSaldo) {
-        this.lblSaldo = lblSaldo;
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
     }
 
     public JLabel getLblSenha() {
@@ -41,6 +57,14 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
 
     public void setLblSenha(JLabel lblSenha) {
         this.lblSenha = lblSenha;
+    }
+
+    public JLabel getLblVerificarSenha() {
+        return lblVerificarSenha;
+    }
+
+    public void setLblVerificarSenha(JLabel lblVerificarSenha) {
+        this.lblVerificarSenha = lblVerificarSenha;
     }
 
     public JTextField getTxtSenha() {
@@ -52,14 +76,13 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
     }
     
     
-    
-    
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSaldo = new javax.swing.JLabel();
+        lblVerificarSenha = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
         btSenha = new javax.swing.JButton();
@@ -67,9 +90,9 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblSaldo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblSaldo.setText("                           VERIFICAÇÃO");
-        lblSaldo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblVerificarSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblVerificarSenha.setText("                           VERIFICAÇÃO");
+        lblVerificarSenha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSenha.setText("SENHA:");
@@ -92,7 +115,7 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSaldo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblVerificarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -105,12 +128,12 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblVerificarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
@@ -133,13 +156,13 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
         controller.voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private ControllerSenhaSaldo controller;
+    private ControllerSenhaExtrato controller;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSenha;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblVerificarSenha;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

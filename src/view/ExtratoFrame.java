@@ -1,6 +1,7 @@
 package view;
 
 import controller.ControllerExtrato;
+import model.Investidor;
 
 /**
  *
@@ -11,7 +12,7 @@ public class ExtratoFrame extends javax.swing.JFrame {
     
     
 
-    public ExtratoFrame() {
+    public ExtratoFrame(Investidor investidor) {
         initComponents();
         controller = new ControllerExtrato(this);
     }

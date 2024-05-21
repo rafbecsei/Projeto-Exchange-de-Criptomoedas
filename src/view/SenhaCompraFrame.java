@@ -1,59 +1,20 @@
 package view;
 
-import controller.ControllerSenhaSaldo;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+//import controller.ControllerSenhaCompra;
 
 /**
  *
  * @author Rafael Becsei
  */
 
-public class SenhaSaldoFrame extends javax.swing.JFrame {
+public class SenhaCompraFrame extends javax.swing.JFrame {
     private LoginFrame lf;
     
-    public SenhaSaldoFrame(LoginFrame lf) {
+    public SenhaCompraFrame(LoginFrame lf) {
         initComponents();
-        controller = new ControllerSenhaSaldo(this);
+//        controller = new ControllerSenhaCompra(this);
         this.lf = lf;
     }
-
-    public JButton getBtSenha() {
-        return btSenha;
-    }
-
-    public void setBtSenha(JButton btSenha) {
-        this.btSenha = btSenha;
-    }
-
-    public JLabel getLblSaldo() {
-        return lblSaldo;
-    }
-
-    public void setLblSaldo(JLabel lblSaldo) {
-        this.lblSaldo = lblSaldo;
-    }
-
-    public JLabel getLblSenha() {
-        return lblSenha;
-    }
-
-    public void setLblSenha(JLabel lblSenha) {
-        this.lblSenha = lblSenha;
-    }
-
-    public JTextField getTxtSenha() {
-        return txtSenha;
-    }
-
-    public void setTxtSenha(JTextField txtSenha) {
-        this.txtSenha = txtSenha;
-    }
-    
-    
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,7 +66,7 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,14 +87,14 @@ public class SenhaSaldoFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSenhaActionPerformed
-        controller.consultaSenha(lf);
+//        controller.consultaSenha(lf);
     }//GEN-LAST:event_btSenhaActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        controller.voltar();
+//        controller.voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private ControllerSenhaSaldo controller;
+//    private ControllerSenhaCompra controller;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSenha;

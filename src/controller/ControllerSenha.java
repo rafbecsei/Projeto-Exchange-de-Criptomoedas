@@ -54,7 +54,7 @@ public class ControllerSenha {
                 sf.setVisible(true);
                 view.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(view, "Login não foi efetuado!");
+                JOptionPane.showMessageDialog(view, "Senha Incorreta");
             }
         } catch (SQLException e){
             e.printStackTrace();

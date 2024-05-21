@@ -31,7 +31,6 @@ public class ControllerSaque {
         String quantiaSacadaStr = view.getTxtQuantiaSaque().getText();
         double quantiaSacada = Double.parseDouble(quantiaSacadaStr);
         double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-//        double NovoReal = Real - quantiaSacada;
         if (quantiaSacada > Real){
             JOptionPane.showMessageDialog(view, "Valor Excede Saldo");
         } else{

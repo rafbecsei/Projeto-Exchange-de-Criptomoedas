@@ -24,6 +24,7 @@ public class ControllerCadastro {
         view.setVisible(false);
     }
     
+    
     public void cadastrarPessoa(){
         String nome = view.getTxtNome().getText();
         String cpf = view.getTxtCpf().getText();
