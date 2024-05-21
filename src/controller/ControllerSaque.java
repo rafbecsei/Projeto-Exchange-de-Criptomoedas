@@ -28,22 +28,23 @@ public class ControllerSaque {
     }
     
     public void SaqueReal(){
-        String quantiaSacadaStr = view.getTxtQuantiaSaque().getText();
-        double quantiaSacada = Double.parseDouble(quantiaSacadaStr);
-        double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-        if (quantiaSacada > Real){
-            JOptionPane.showMessageDialog(view, "Valor Excede Saldo");
-        } else{
-            double NovoReal = Real - quantiaSacada;
-            investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
-            JOptionPane.showMessageDialog(view, "Saque Realizado");
-            view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
-        }
         Conexao conexao = new Conexao();
         try{
+            String quantiaSacadaStr = view.getTxtQuantiaSaque().getText();
+            double quantiaSacada = Double.parseDouble(quantiaSacadaStr);
+            double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
+            if (quantiaSacada > Real){
+                JOptionPane.showMessageDialog(view, "Valor Excede Saldo");
+            } else{
+                double NovoReal = Real - quantiaSacada;
+                investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
+                JOptionPane.showMessageDialog(view, "Saque Realizado");
+                view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
+            }
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.atualizardeposito(investidor);
+            
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro no Saque");
         }

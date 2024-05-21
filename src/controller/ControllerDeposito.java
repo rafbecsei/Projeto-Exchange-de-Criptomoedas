@@ -31,19 +31,17 @@ public class ControllerDeposito {
     }
     
     public void depositoReal(){
-        String quantiaDepositadaStr = view.getTxtquantiaDeposito().getText();
-        double quantiaDepositada = Double.parseDouble(quantiaDepositadaStr);
-        double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-        double NovoReal = Real + quantiaDepositada;
-        investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
         Conexao conexao = new Conexao();
         try{
+            String quantiaDepositadaStr = view.getTxtquantiaDeposito().getText();
+            double quantiaDepositada = Double.parseDouble(quantiaDepositadaStr);
+            double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
+            double NovoReal = Real + quantiaDepositada;
+            investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.atualizardeposito(investidor);
-            
             JOptionPane.showMessageDialog(view, "Depósito Realizado");
-            
             view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
              
         } catch (SQLException e){

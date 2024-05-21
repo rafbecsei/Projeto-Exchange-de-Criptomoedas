@@ -30,21 +30,7 @@ public class ControllerAtualizar {
     public void atualizaFrame(Investidor investidor){
         AtualizarFrame af = new AtualizarFrame(investidor, lf);
         af.setVisible(true);
-    }
-    
-//    
-//    
-//    
-//    
-//    
-//    
-//    TALVEZ MEXER EMBAIXO
-//    
-//    
-//    
-//    
-//    
-//  
+    } 
 
     public void atualizaCotacao(){
         Conexao conexao = new Conexao();

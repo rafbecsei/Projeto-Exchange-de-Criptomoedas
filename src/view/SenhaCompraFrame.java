@@ -1,6 +1,9 @@
 package view;
 
-//import controller.ControllerSenhaCompra;
+import controller.ControllerSenhaCompra;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -9,12 +12,71 @@ package view;
 
 public class SenhaCompraFrame extends javax.swing.JFrame {
     private LoginFrame lf;
+    private SenhaCompraFrame scf;
     
     public SenhaCompraFrame(LoginFrame lf) {
         initComponents();
-//        controller = new ControllerSenhaCompra(this);
+        controller = new ControllerSenhaCompra(this);
         this.lf = lf;
     }
+
+    public LoginFrame getLf() {
+        return lf;
+    }
+
+    public void setLf(LoginFrame lf) {
+        this.lf = lf;
+    }
+
+    public ControllerSenhaCompra getController() {
+        return controller;
+    }
+
+    public void setController(ControllerSenhaCompra controller) {
+        this.controller = controller;
+    }
+
+    public JButton getBtSenha() {
+        return btSenha;
+    }
+
+    public void setBtSenha(JButton btSenha) {
+        this.btSenha = btSenha;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JLabel getLblSaldo() {
+        return lblSaldo;
+    }
+
+    public void setLblSaldo(JLabel lblSaldo) {
+        this.lblSaldo = lblSaldo;
+    }
+
+    public JLabel getLblSenha() {
+        return lblSenha;
+    }
+
+    public void setLblSenha(JLabel lblSenha) {
+        this.lblSenha = lblSenha;
+    }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -87,14 +149,14 @@ public class SenhaCompraFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSenhaActionPerformed
-//        controller.consultaSenha(lf);
+        controller.consultaSenha(lf);
     }//GEN-LAST:event_btSenhaActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-//        controller.voltar();
+        controller.voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
 
-//    private ControllerSenhaCompra controller;
+    private ControllerSenhaCompra controller;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSenha;

@@ -20,8 +20,8 @@ public class ControllerSaldo {
     }
     
     public void saldoFrame(){
-        SaldoFrame sc = new SaldoFrame(investidor);
-        sc.setVisible(true);
+        SaldoFrame sf = new SaldoFrame(investidor);
+        sf.setVisible(true);
     }
     
     public void voltarSaldo(){

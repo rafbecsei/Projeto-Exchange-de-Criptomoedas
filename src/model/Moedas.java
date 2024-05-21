@@ -8,17 +8,26 @@ package model;
 public class Moedas {
     private double saldo;
     private double cotacao;
+    private double taxaC;
+    private double taxaV;
    
 
     public Moedas() {
         this(0); 
     }
 
-    public Moedas(double saldo, double cotacao) {
+    public Moedas(double saldo, double cotacao, double taxaC, double taxaV) {
         this.saldo = saldo;
         this.cotacao = cotacao;
+        this.taxaC = taxaC;
+        this.taxaV = taxaV;
     }
 
+//    public Moedas(double saldo, double cotacao) {
+//        this.saldo = saldo;
+//        this.cotacao = cotacao;
+//    }
+    
     public Moedas(double saldo) {
         this.saldo = saldo;
     }
@@ -39,9 +48,27 @@ public class Moedas {
         this.cotacao = cotacao;
     }
 
+    public double getTaxaC() {
+        return taxaC;
+    }
+
+    public void setTaxaC(double taxaC) {
+        this.taxaC = taxaC;
+    }
+
+    public double getTaxaV() {
+        return taxaV;
+    }
+
+    public void setTaxaV(double taxaV) {
+        this.taxaV = taxaV;
+    }
+
     @Override
     public String toString() {
-        return "Moedas{" + "saldo=" + saldo + ", cotacao=" + cotacao + '}';
+        return "Moedas{" + "saldo=" + saldo + ", cotacao=" + cotacao + ", taxaC=" + taxaC + ", taxaV=" + taxaV + '}';
     }
+    
+    
 }
 

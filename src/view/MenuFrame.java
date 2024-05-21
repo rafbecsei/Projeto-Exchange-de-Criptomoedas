@@ -21,12 +21,12 @@ public class MenuFrame extends javax.swing.JFrame {
     }
     
     
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton6 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         lblLogin = new javax.swing.JLabel();
         btConsultaSaldo = new javax.swing.JButton();
         btConsultaExtrato = new javax.swing.JButton();
@@ -36,20 +36,6 @@ public class MenuFrame extends javax.swing.JFrame {
         btVenda = new javax.swing.JButton();
         btAtualiza = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
-
-        jButton6.setText("jButton1");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("jButton1");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,25 +167,20 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btSaqueActionPerformed
 
     private void btCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraActionPerformed
-        // TODO add your handling code here:
+        SenhaCompraFrame cf = new SenhaCompraFrame(lf);
+        cf.setVisible(true);
+        
     }//GEN-LAST:event_btCompraActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void btVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaActionPerformed
-        // TODO add your handling code here:
+//        SenhaVendaFrame vf = new SenhaVendaFrame(lf);
+//        vf.setVisible(true);
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaActionPerformed
         AtualizarFrame af = new AtualizarFrame(investidor, lf);
         af.setVisible(true);
     }//GEN-LAST:event_btAtualizaActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         LoginFrame lf = new LoginFrame();
@@ -218,8 +199,6 @@ public class MenuFrame extends javax.swing.JFrame {
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSaque;
     private javax.swing.JButton btVenda;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel lblLogin;
     // End of variables declaration//GEN-END:variables
 }
