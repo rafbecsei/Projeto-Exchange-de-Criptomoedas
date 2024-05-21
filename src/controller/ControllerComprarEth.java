@@ -2,57 +2,56 @@ package controller;
 
 import DAO.Conexao;
 import DAO.InvestidorDAO;
-import java.sql.Connection;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.ComprarBitFrame;
+import view.ComprarEthFrame;
 import view.LoginFrame;
-
+import java.sql.SQLException;
+import java.sql.Connection;
 
 /**
  *
  * @author Rafael Becsei
  */
-public class ControllerComprarBit {
-    private ComprarBitFrame view;
+public class ControllerComprarEth {
+    private ComprarEthFrame view;
     private Investidor investidor;
     private LoginFrame lf;
 
-    public ControllerComprarBit(ComprarBitFrame view, Investidor investidor) {
+    public ControllerComprarEth(ComprarEthFrame view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;
     }
     
-    public void comprarBitFrame(){
-        ComprarBitFrame bf = new ComprarBitFrame(investidor);
-        bf.setVisible(true);
+    public void comprarEthFrame(){
+        ComprarEthFrame ef = new ComprarEthFrame(investidor);
+        ef.setVisible(true);
     }
     
-    public void comprarBit(){
+    public void comprarEth(){
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             String quantiacomprarStr = view.getTxtValorBit().getText();
             double quantiaComprar = Double.parseDouble(quantiacomprarStr);
-            double Bitcoin = investidor.getCarteira().getMoedas().get(1).getSaldo();
-            double cotacaoBit = investidor.getCarteira().getMoedas().get(1).getCotacao();
-            double taxaBitC = investidor.getCarteira().getMoedas().get(1).getTaxaCompra();
+            double Ethereum = investidor.getCarteira().getMoedas().get(2).getSaldo();
+            double cotacaoEth = investidor.getCarteira().getMoedas().get(2).getCotacao();
+            double taxaEthC = investidor.getCarteira().getMoedas().get(2).getTaxaCompra();
             double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-            double NovoReal = Real - quantiaComprar * (1 + taxaBitC);
+            double NovoReal = Real - quantiaComprar * (1 + taxaEthC);
             if (NovoReal < 0){
                 JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
             } else{
                 
-                double bitCotacao = quantiaComprar / cotacaoBit;
-                double NovoBitcoin = Bitcoin + bitCotacao;
-                investidor.getCarteira().getMoedas().get(1).setSaldo(NovoBitcoin);
+                double ethCotacao = quantiaComprar / cotacaoEth;
+                double NovoEthereum = Ethereum + ethCotacao;
+                investidor.getCarteira().getMoedas().get(2).setSaldo(NovoEthereum);
                 investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
                 dao.atualizaReal(investidor);
-                dao.atualizarcompraBit(investidor);
+                dao.atualizarcompraEth(investidor);
                 JOptionPane.showMessageDialog(view, "Compra Realizado");
-                view.getLblSaldoBitcoin().setText(String.valueOf(NovoBitcoin));
+                view.getLblSaldoEthereum().setText(String.valueOf(NovoEthereum));
             } 
             
         } catch (SQLException e){

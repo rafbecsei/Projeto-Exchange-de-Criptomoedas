@@ -16,6 +16,10 @@ public class Ripple extends Moedas implements Tarifação{
     public Ripple(double saldo, double cotacao, double taxaC, double taxaV) {
         super(saldo, cotacao, taxaC, taxaV);
     }
+    
+    public Ripple(double saldo, double cotacao) {
+        super(saldo, cotacao);
+    }
 
     public Ripple(double saldo) {
         super(saldo);

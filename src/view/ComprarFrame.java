@@ -32,6 +32,7 @@ public class ComprarFrame extends javax.swing.JFrame {
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.consultarSenha(investidor);
             if(res.next()){
+                this.investidor = investidor;
                 
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
@@ -271,9 +272,8 @@ public class ComprarFrame extends javax.swing.JFrame {
 
         lblComprarCripto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblComprarCripto.setText("                 COMPRAR CRIPTOMOEDAS");
-        lblComprarCripto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblCriptomoedas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblCriptomoedas.setText("                            CRIPTOMOEDAS");
@@ -289,7 +289,7 @@ public class ComprarFrame extends javax.swing.JFrame {
             .addComponent(lblCriptomoedas, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblMoedas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblMoedas.setText("     MOEDAS");
@@ -305,7 +305,7 @@ public class ComprarFrame extends javax.swing.JFrame {
             .addComponent(lblMoedas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblCotacao.setText("                          COTAÇÃO");
 
@@ -320,7 +320,7 @@ public class ComprarFrame extends javax.swing.JFrame {
             .addComponent(lblCotacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblBitcoin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblBitcoin.setText("- BITCOIN:");
@@ -355,7 +355,7 @@ public class ComprarFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblBitcoinAtualizado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblBitcoinAtualizado.setText("bitcoin");
@@ -387,10 +387,10 @@ public class ComprarFrame extends javax.swing.JFrame {
                 .addComponent(lblEthereumAtualizado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRippleAtualizado)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         lblComprar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblComprar.setText("                                COMPRAR");
@@ -406,7 +406,7 @@ public class ComprarFrame extends javax.swing.JFrame {
             .addComponent(lblComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
         );
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         btCompraBit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btCompraBit.setText("COMPRAR BITCOIN");
@@ -516,19 +516,18 @@ public class ComprarFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCompraBitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraBitActionPerformed
-//        ComprarBitFrame bf = new ComprarBitFrame(investidor, lf);
         ComprarBitFrame bf = new ComprarBitFrame(investidor);
         bf.setVisible(true);
     }//GEN-LAST:event_btCompraBitActionPerformed
 
     private void btCompraEthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraEthActionPerformed
-//        ComprarEthFrame ef = new ComprarEthFrame();
-//        ef.setVisible(true);
+        ComprarEthFrame ef = new ComprarEthFrame(investidor);
+        ef.setVisible(true);
     }//GEN-LAST:event_btCompraEthActionPerformed
 
     private void btCompraRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraRipActionPerformed
-//        ComprarRipFrame rf = new ComprarRipFrame();
-//        rf.setVisible(true);
+        ComprarRipFrame rf = new ComprarRipFrame(investidor);
+        rf.setVisible(true);
     }//GEN-LAST:event_btCompraRipActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed

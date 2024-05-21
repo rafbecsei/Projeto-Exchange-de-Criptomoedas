@@ -35,7 +35,6 @@ public class ControllerCadastro {
         
         try{
             Connection conn = conexao.getConnection();
-            System.out.println("Conectado");
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.inserir(investidor);
             JOptionPane.showMessageDialog(view, "Cadastrado Realizado!");

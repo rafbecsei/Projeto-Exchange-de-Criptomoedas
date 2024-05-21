@@ -16,6 +16,10 @@ public class Ethereum extends Moedas implements Tarifação {
     public Ethereum(double saldo) {
         super(saldo);
     }
+    
+    public Ethereum(double saldo, double cotacao) {
+        super(saldo, cotacao);
+    }
 
     @Override
     public double getTaxaCompra() {

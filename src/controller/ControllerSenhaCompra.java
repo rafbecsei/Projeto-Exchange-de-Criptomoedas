@@ -1,4 +1,3 @@
-
 package controller;
 
 import DAO.InvestidorDAO;
@@ -44,10 +43,13 @@ public class ControllerSenhaCompra {
                 double Ethereum = res.getDouble("ethereum");
                 double Ripple = res.getDouble("ripple");
                 ArrayList<Moedas> moedas = new ArrayList<Moedas>();
-                moedas.add(new Real(Real));
-                moedas.add(new Bitcoin(Bitcoin));
-                moedas.add(new Ethereum(Ethereum));
-                moedas.add(new Ripple(Ripple));
+                double cotacaoBit = res.getDouble("cotacaoBit");
+                double cotacaoEth = res.getDouble("cotacaoEth");
+                double cotacaoRip = res.getDouble("cotacaoRip");
+                moedas.add(new Real(Real, 0));
+                moedas.add(new Bitcoin(Bitcoin, cotacaoBit));
+                moedas.add(new Ethereum(Ethereum, cotacaoEth));
+                moedas.add(new Ripple(Ripple, cotacaoRip));
                 Carteira carteira = new Carteira(moedas);
                 ComprarFrame cf = new ComprarFrame(new Investidor(carteira, nome, cpf, senha));
                 cf.setVisible(true);

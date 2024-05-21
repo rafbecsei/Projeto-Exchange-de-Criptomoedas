@@ -22,11 +22,13 @@ public class Moedas {
         this.taxaC = taxaC;
         this.taxaV = taxaV;
     }
+    
+    
 
-//    public Moedas(double saldo, double cotacao) {
-//        this.saldo = saldo;
-//        this.cotacao = cotacao;
-//    }
+    public Moedas(double saldo, double cotacao) {
+        this.saldo = saldo;
+        this.cotacao = cotacao;
+    }
     
     public Moedas(double saldo) {
         this.saldo = saldo;
@@ -48,19 +50,19 @@ public class Moedas {
         this.cotacao = cotacao;
     }
 
-    public double getTaxaC() {
+    public double getTaxaCompra() {
         return taxaC;
     }
 
-    public void setTaxaC(double taxaC) {
+    public void setTaxaCompra(double taxaC) {
         this.taxaC = taxaC;
     }
 
-    public double getTaxaV() {
+    public double getTaxaVenda() {
         return taxaV;
     }
 
-    public void setTaxaV(double taxaV) {
+    public void setTaxaVenda(double taxaV) {
         this.taxaV = taxaV;
     }
 

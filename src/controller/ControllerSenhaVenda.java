@@ -1,9 +1,7 @@
-
 package controller;
 
 import DAO.InvestidorDAO;
 import DAO.Conexao;
-import view.LoginFrame;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -16,33 +14,39 @@ import model.Investidor;
 import model.Moedas;
 import model.Real;
 import model.Ripple;
-import view.MenuFrame;
+import view.LoginFrame;
+import view.SenhaVenderFrame;
+import view.VenderFrame;
 
-public class ControllerLogin {
-    private LoginFrame view;
+/**
+ *
+ * @author Rafael Becsei
+ */
 
-    public ControllerLogin(LoginFrame view) {
+public class ControllerSenhaVenda {
+    private SenhaVenderFrame view;
+
+    public ControllerSenhaVenda(SenhaVenderFrame view) {
         this.view = view;
     }
     
-    public void loginPessoa(){
-        Investidor investidor = new Investidor(null, view.getTxtCpf().getText(),
-                                      view.getTxtSenha().getText());
+    public void consultaSenha(LoginFrame lf){
+        Investidor investidor = new Investidor(null, null, lf.getTxtCpf().getText(), view.getTxtSenha().getText());
         Conexao conexao = new Conexao();
+        
         try{
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
-            ResultSet res = dao.consultar(investidor);
-            if(res.next()){
-                JOptionPane.showMessageDialog(view, "Login feito!");
+            ResultSet res = dao.consultarSenha(investidor);
+            if(res.next()){                
                 String nome = res.getString("nome");
                 String cpf = res.getString("cpf");
                 String senha = res.getString("senha");
-                ArrayList<Moedas> moedas = new ArrayList<>();
                 double Real = res.getDouble("real");
                 double Bitcoin = res.getDouble("bitcoin");
                 double Ethereum = res.getDouble("ethereum");
                 double Ripple = res.getDouble("ripple");
+                ArrayList<Moedas> moedas = new ArrayList<Moedas>();
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
@@ -51,16 +55,20 @@ public class ControllerLogin {
                 moedas.add(new Ethereum(Ethereum, cotacaoEth));
                 moedas.add(new Ripple(Ripple, cotacaoRip));
                 Carteira carteira = new Carteira(moedas);
-                
-                MenuFrame mf = new MenuFrame(view, new Investidor(carteira, nome, cpf, senha));
-                mf.setVisible(true);
+                VenderFrame cf = new VenderFrame(new Investidor(carteira, nome, cpf, senha));
+                cf.setVisible(true);
                 view.setVisible(false);
-                
             } else {
-                JOptionPane.showMessageDialog(view, "Login nao foi efetuado!");
+                JOptionPane.showMessageDialog(view, "Senha Incorreta");
             }
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(view, "Erro de conexao!");
+            
+            JOptionPane.showMessageDialog(view, "Erro de conexão!");
         }
     }
+    
+    public void voltar(){
+        view.setVisible(false);
+    }
+    
 }

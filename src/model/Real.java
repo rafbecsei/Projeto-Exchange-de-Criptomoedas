@@ -12,10 +12,12 @@ public class Real extends Moedas implements Tarifação{
     public Real() {
         
     }
-    
-    public Real(double saldo) {
-        super(saldo);
+
+    public Real(double saldo, double cotacao) {
+        super(saldo, cotacao);
     }
+    
+    
     
     @Override
     public double getTaxaCompra() {

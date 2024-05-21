@@ -173,8 +173,8 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btCompraActionPerformed
 
     private void btVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaActionPerformed
-//        SenhaVendaFrame vf = new SenhaVendaFrame(lf);
-//        vf.setVisible(true);
+        SenhaVenderFrame vf = new SenhaVenderFrame(lf);
+        vf.setVisible(true);
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaActionPerformed
