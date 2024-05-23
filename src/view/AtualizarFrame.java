@@ -19,7 +19,6 @@ import model.Investidor;
 
 public class AtualizarFrame extends javax.swing.JFrame {
     private Investidor investidor;
-    private LoginFrame lf;
 
     public AtualizarFrame(Investidor investidor, LoginFrame lf) {
         initComponents();
@@ -34,18 +33,15 @@ public class AtualizarFrame extends javax.swing.JFrame {
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                
                 investidor.getCarteira().getMoedas().get(1).setCotacao(cotacaoBit);
                 investidor.getCarteira().getMoedas().get(2).setCotacao(cotacaoEth);
                 investidor.getCarteira().getMoedas().get(3).setCotacao(cotacaoRip);
-                
                 lblBitcoinAtualizado.setText(String.valueOf(investidor.getCarteira()
                                             .getMoedas().get(1).getCotacao()));
                 lblEthereumAtualizado.setText(String.valueOf(investidor.getCarteira()
                                             .getMoedas().get(2).getCotacao()));
                 lblRippleAtualizado.setText(String.valueOf(investidor.getCarteira()
                                             .getMoedas().get(3).getCotacao()));
-                
             } else {
                 JOptionPane.showMessageDialog(this, "Erro!");
             }
@@ -278,8 +274,6 @@ public class AtualizarFrame extends javax.swing.JFrame {
         this.lblcotacaoRipAtual = lblcotacaoRipAtual;
     }
     
-    
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

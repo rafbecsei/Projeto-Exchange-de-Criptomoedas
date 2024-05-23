@@ -13,9 +13,7 @@ import model.Investidor;
  */
 
 public class ComprarRipFrame extends javax.swing.JFrame {
-    private Investidor investidor;
     private ComprarRipFrame view;
-    private LoginFrame lf;
 
     public ComprarRipFrame(Investidor investidor) {
         initComponents();
@@ -23,8 +21,6 @@ public class ComprarRipFrame extends javax.swing.JFrame {
         lblSaldoRipple.setText(String.valueOf(investidor.getCarteira()
                                                .getMoedas().get(3).getSaldo()));
     }
-
-    
 
     public JButton getBtComprarEth() {
         return btComprarEth;
@@ -105,8 +101,6 @@ public class ComprarRipFrame extends javax.swing.JFrame {
     public void setTxtValorBit(JTextField txtValorBit) {
         this.txtValorBit = txtValorBit;
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

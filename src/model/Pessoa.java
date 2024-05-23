@@ -9,6 +9,7 @@ public class Pessoa {
     private String nome, cpf, senha;
 
     public Pessoa() {
+        
     }
 
     public Pessoa(String nome, String cpf, String senha) {

@@ -101,10 +101,6 @@ public class SacarFrame extends javax.swing.JFrame {
         this.lblNovoSaldoPessoa = lblNovoSaldoPessoa;
     }
     
-    
-    
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

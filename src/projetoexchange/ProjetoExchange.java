@@ -13,5 +13,4 @@ public class ProjetoExchange {
         LoginFrame lf = new LoginFrame();
         lf.setVisible(true);
     }
-    
 }

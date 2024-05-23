@@ -13,9 +13,7 @@ import model.Investidor;
  */
 
 public class ComprarEthFrame extends javax.swing.JFrame {
-    private Investidor investidor;
     private ComprarEthFrame view;
-    private LoginFrame lf;
     
     public ComprarEthFrame(Investidor investidor) {
         initComponents();
@@ -103,9 +101,6 @@ public class ComprarEthFrame extends javax.swing.JFrame {
     public void setTxtValorBit(JTextField txtValorBit) {
         this.txtValorBit = txtValorBit;
     }
-    
-    
-
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

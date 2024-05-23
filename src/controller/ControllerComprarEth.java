@@ -5,7 +5,6 @@ import DAO.InvestidorDAO;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ComprarEthFrame;
-import view.LoginFrame;
 import java.sql.SQLException;
 import java.sql.Connection;
 
@@ -13,10 +12,10 @@ import java.sql.Connection;
  *
  * @author Rafael Becsei
  */
+
 public class ControllerComprarEth {
     private ComprarEthFrame view;
     private Investidor investidor;
-    private LoginFrame lf;
 
     public ControllerComprarEth(ComprarEthFrame view, Investidor investidor) {
         this.view = view;
@@ -43,7 +42,6 @@ public class ControllerComprarEth {
             if (NovoReal < 0){
                 JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
             } else{
-                
                 double ethCotacao = quantiaComprar / cotacaoEth;
                 double NovoEthereum = Ethereum + ethCotacao;
                 investidor.getCarteira().getMoedas().get(2).setSaldo(NovoEthereum);

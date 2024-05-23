@@ -40,7 +40,6 @@ public class ControllerCadastro {
             JOptionPane.showMessageDialog(view, "Cadastrado Realizado!");
             view.setVisible(false);
         } catch (SQLException e){
-            e.printStackTrace();
             JOptionPane.showMessageDialog(view, "Falha no Cadastrado!");
         }
     }

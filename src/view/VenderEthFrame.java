@@ -11,16 +11,21 @@ import model.Investidor;
  *
  * @author Rafael Becsei
  */
+
 public class VenderEthFrame extends javax.swing.JFrame {
     private Investidor investidor;
     
     public VenderEthFrame(Investidor investidor) {
         initComponents();
         controller = new ControllerVenderEth(this, investidor);
+        lblSaldoEthereum.setText(String.valueOf(investidor.getCarteira()
+                                               .getMoedas().get(2).getSaldo()));
         double Ethereum = investidor.getCarteira().getMoedas().get(2).getSaldo();
         double cotacaoEth = investidor.getCarteira().getMoedas().get(2).getCotacao();
-        double saldoReal = Ethereum * cotacaoEth;
-        lblSaldoEthereum.setDouble(saldoReal);
+        double taxaEthV = investidor.getCarteira().getMoedas().get(2).getTaxaVenda();
+        double EthparaReal = Ethereum * cotacaoEth;
+//        double Real = BitparaReal * (1 + taxaBitV);
+        lblSaldoReal.setText(String.format("%.2f", EthparaReal));
     }
 
     public Investidor getInvestidor() {
@@ -126,9 +131,6 @@ public class VenderEthFrame extends javax.swing.JFrame {
     public void setLblSaldoReal(JLabel lblSaldoReal) {
         this.lblSaldoReal = lblSaldoReal;
     }
-    
-    
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

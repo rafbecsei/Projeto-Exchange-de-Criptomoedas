@@ -19,6 +19,11 @@ import view.LoginFrame;
 import view.SaldoFrame;
 import view.SenhaSaldoFrame;
 
+/**
+ *
+ * @author Rafael Becsei
+ */
+
 public class ControllerSenhaSaldo {
     private SenhaSaldoFrame view;
 
@@ -30,7 +35,6 @@ public class ControllerSenhaSaldo {
         Investidor investidor = new Investidor(null, null, lf.getTxtCpf().getText(),
                 view.getTxtSenha().getText());
         Conexao conexao = new Conexao();
-        
         try{
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
@@ -43,10 +47,10 @@ public class ControllerSenhaSaldo {
                 double Bitcoin = res.getDouble("bitcoin");
                 double Ethereum = res.getDouble("ethereum");
                 double Ripple = res.getDouble("ripple");
-                ArrayList<Moedas> moedas = new ArrayList<Moedas>();
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
+                ArrayList<Moedas> moedas = new ArrayList<>();
                 moedas.add(new Real(Real, 0));
                 moedas.add(new Bitcoin(Bitcoin, cotacaoBit));
                 moedas.add(new Ethereum(Ethereum, cotacaoEth));
@@ -61,7 +65,7 @@ public class ControllerSenhaSaldo {
             }
         } catch (SQLException e){
             
-            JOptionPane.showMessageDialog(view, "Erro de conexão!");
+            JOptionPane.showMessageDialog(view, "Erro na conexão");
         }
     }
     

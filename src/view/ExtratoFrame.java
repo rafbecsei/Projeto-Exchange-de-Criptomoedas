@@ -16,6 +16,8 @@ public class ExtratoFrame extends javax.swing.JFrame {
         initComponents();
         controller = new ControllerExtrato(this);
     }
+    
+    
 
     
     @SuppressWarnings("unchecked")

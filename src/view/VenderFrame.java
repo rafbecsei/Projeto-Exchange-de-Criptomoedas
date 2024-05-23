@@ -19,7 +19,6 @@ import model.Investidor;
 
 public class VenderFrame extends javax.swing.JFrame {
     private Investidor investidor;
-    private LoginFrame lf;
     
     public VenderFrame(Investidor investidor) {
         initComponents();
@@ -30,17 +29,13 @@ public class VenderFrame extends javax.swing.JFrame {
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.consultarSenha(investidor);
             if(res.next()){
-                
                 this.investidor = investidor;
-                
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                
                 this.getLblBitcoinAtualizado().setText(String.valueOf(cotacaoBit));
                 this.getLblEthereumAtualizado().setText(String.valueOf(cotacaoEth));
                 this.getLblRippleAtualizado().setText(String.valueOf(cotacaoRip));
-                
             } else {
                 JOptionPane.showMessageDialog(this, "Erro!");
             }
@@ -224,8 +219,6 @@ public class VenderFrame extends javax.swing.JFrame {
     public void setLblVenderCripto(JLabel lblVenderCripto) {
         this.lblVenderCripto = lblVenderCripto;
     }
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

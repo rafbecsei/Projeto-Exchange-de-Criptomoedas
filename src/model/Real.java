@@ -17,8 +17,6 @@ public class Real extends Moedas implements Tarifação{
         super(saldo, cotacao);
     }
     
-    
-    
     @Override
     public double getTaxaCompra() {
         return taxaCompra;

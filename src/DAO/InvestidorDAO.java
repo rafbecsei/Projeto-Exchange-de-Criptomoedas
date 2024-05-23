@@ -26,16 +26,15 @@ public class InvestidorDAO {
         return stmt.executeQuery();
     }
     
-    public ResultSet consultar(Investidor investidor) throws SQLException{
-        String sql = "select * from pessoa where cpf = ? and senha = ?";
-        
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, investidor.getCpf());
-        statement.setString(2, investidor.getSenha());
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
+//    public ResultSet consultar(Investidor investidor) throws SQLException{
+//        String sql = "select * from pessoa where cpf = ? and senha = ?";
+//        PreparedStatement statement = conn.prepareStatement(sql);
+//        statement.setString(1, investidor.getCpf());
+//        statement.setString(2, investidor.getSenha());
+//        statement.execute();
+//        ResultSet resultado = statement.getResultSet();
+//        return resultado;
+//    }
     
     private int gerarNovoId() throws SQLException {
         String sql = "select max(id) from pessoa";
@@ -169,7 +168,34 @@ public class InvestidorDAO {
         conn.close();
     }
     
-    public void atualizaCotacao(Investidor investidor)throws SQLException{
+    public void atualizarvendaBit(Investidor investidor) throws SQLException{
+        String sql = "update pessoa set \"bitcoin\" = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getSaldo());
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        conn.close();
+    }
+    
+    public void atualizarvendaEth(Investidor investidor) throws SQLException{
+        String sql = "update pessoa set \"ethereum\" = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(2).getSaldo());
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        conn.close();
+    }
+    
+    public void atualizarvendaRip(Investidor investidor) throws SQLException{
+        String sql = "update pessoa set \"ripple\" = ? where cpf = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(3).getSaldo());
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        conn.close();
+    }
+    
+    public void atualizaCotacao(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"cotacaoBit\" = ?, \"cotacaoEth\" = ?, \"cotacaoRip\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getCotacao());
@@ -177,5 +203,9 @@ public class InvestidorDAO {
         statement.setDouble(3, investidor.getCarteira().getMoedas().get(3).getCotacao());
         statement.executeUpdate();
         conn.close();
+    }
+    
+    public void extrato() throws SQLException{
+        
     }
 }

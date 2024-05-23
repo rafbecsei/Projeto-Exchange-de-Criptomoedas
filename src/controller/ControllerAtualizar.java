@@ -41,32 +41,26 @@ public class ControllerAtualizar {
             InvestidorDAO dao = new InvestidorDAO(conn);
             ResultSet res = dao.consultarSenha(investidor);
             if(res.next()){
-                
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                
                 double atualizacaoBit = (rand.nextDouble() * 0.1 - 0.05) * cotacaoBit;
                 double atualizacaoEth = (rand.nextDouble() * 0.1 - 0.05) * cotacaoEth;
                 double atualizacaoRip = (rand.nextDouble() * 0.1 - 0.05) * cotacaoRip;
-                
                 cotacaoBit += atualizacaoBit;
                 cotacaoEth += atualizacaoEth;
                 cotacaoRip += atualizacaoRip;
-                
+                cotacaoBit = Math.round(cotacaoBit * 100.0) / 100.0;
+                cotacaoEth = Math.round(cotacaoEth * 100.0) / 100.0;
+                cotacaoRip = Math.round(cotacaoRip * 100.0) / 100.0;
                 investidor.getCarteira().getMoedas().get(1).setCotacao(cotacaoBit);
                 investidor.getCarteira().getMoedas().get(2).setCotacao(cotacaoEth);
                 investidor.getCarteira().getMoedas().get(3).setCotacao(cotacaoRip);
-                
                 dao.atualizaCotacao(investidor);
-                
                 JOptionPane.showMessageDialog(view, "Cotação Atualizada");
-                
-                view.getLblcotacaoBitAtual().setText(String.valueOf(cotacaoBit));
-                view.getLblcotacaoEthAtual().setText(String.valueOf(cotacaoEth));
-                view.getLblcotacaoRipAtual().setText(String.valueOf(cotacaoRip));
-                
-                
+                view.getLblcotacaoBitAtual().setText(String.format("%.2f", cotacaoBit));
+                view.getLblcotacaoEthAtual().setText(String.format("%.2f", cotacaoEth));
+                view.getLblcotacaoRipAtual().setText(String.format("%.2f", cotacaoRip));
             } else {
                 JOptionPane.showMessageDialog(view, "Erro");
             }

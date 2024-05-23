@@ -18,6 +18,10 @@ import view.ComprarFrame;
 import view.LoginFrame;
 import view.SenhaCompraFrame;
 
+/**
+ *
+ * @author Rafael Becsei
+ */
 
 public class ControllerSenhaCompra {
     private SenhaCompraFrame view;
@@ -42,10 +46,10 @@ public class ControllerSenhaCompra {
                 double Bitcoin = res.getDouble("bitcoin");
                 double Ethereum = res.getDouble("ethereum");
                 double Ripple = res.getDouble("ripple");
-                ArrayList<Moedas> moedas = new ArrayList<Moedas>();
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
+                ArrayList<Moedas> moedas = new ArrayList<>();
                 moedas.add(new Real(Real, 0));
                 moedas.add(new Bitcoin(Bitcoin, cotacaoBit));
                 moedas.add(new Ethereum(Ethereum, cotacaoEth));
@@ -59,7 +63,7 @@ public class ControllerSenhaCompra {
             }
         } catch (SQLException e){
             
-            JOptionPane.showMessageDialog(view, "Erro de conexão!");
+            JOptionPane.showMessageDialog(view, "Erro na conexão");
         }
     }
     

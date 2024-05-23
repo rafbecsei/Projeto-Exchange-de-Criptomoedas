@@ -4,6 +4,7 @@ package model;
  *
  * @author Rafael Becsei
  */
+
 public class Investidor extends Pessoa {
     private Carteira carteira;
 

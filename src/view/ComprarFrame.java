@@ -12,8 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Investidor;
 
-
-
 /**
  *
  * @author Rafael Becsei
@@ -33,20 +31,17 @@ public class ComprarFrame extends javax.swing.JFrame {
             ResultSet res = dao.consultarSenha(investidor);
             if(res.next()){
                 this.investidor = investidor;
-                
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                
                 this.getLblBitcoinAtualizado().setText(String.valueOf(cotacaoBit));
                 this.getLblEthereumAtualizado().setText(String.valueOf(cotacaoEth));
                 this.getLblRippleAtualizado().setText(String.valueOf(cotacaoRip));
-                
             } else {
-                JOptionPane.showMessageDialog(this, "Erro!");
+                JOptionPane.showMessageDialog(this, "Erro");
             }
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(this, "Erro de conexão!");
+            JOptionPane.showMessageDialog(this, "Erro na conexão");
         }    
     }
 
@@ -233,13 +228,6 @@ public class ComprarFrame extends javax.swing.JFrame {
     public void setLblRippleAtualizado(JLabel lblRippleAtualizado) {
         this.lblRippleAtualizado = lblRippleAtualizado;
     }
-    
-    
-
-    
-    
-    
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

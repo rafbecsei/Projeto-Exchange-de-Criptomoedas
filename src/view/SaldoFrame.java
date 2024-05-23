@@ -131,10 +131,6 @@ public class SaldoFrame extends javax.swing.JFrame {
     public void setLblRipplePessoa(JLabel lblRipplePessoa) {
         this.lblRipplePessoa = lblRipplePessoa;
     }
-
-    
-    
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -44,7 +44,6 @@ public class ControllerSaque {
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.atualizardeposito(investidor);
-            
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro no Saque");
         }

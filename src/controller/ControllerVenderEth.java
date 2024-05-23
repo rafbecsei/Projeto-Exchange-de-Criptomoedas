@@ -6,13 +6,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.LoginFrame;
 import view.VenderEthFrame;
 
 /**
  *
  * @author Rafael Becsei
  */
+
 public class ControllerVenderEth {
      private VenderEthFrame view;
     private Investidor investidor;
@@ -29,33 +29,35 @@ public class ControllerVenderEth {
     
     public void venderEth(){
         Conexao conexao = new Conexao();
-//        try{
-//            Connection conn = conexao.getConnection();
-//            InvestidorDAO dao = new InvestidorDAO(conn);
-//            String quantiavenderStr = view.getTxtValorBit().getText();
-//            double quantiaVender = Double.parseDouble(quantiavenderStr);
-//            double Bitcoin = investidor.getCarteira().getMoedas().get(1).getSaldo();
-//            double cotacaoBit = investidor.getCarteira().getMoedas().get(1).getCotacao();
-//            double taxaBitC = investidor.getCarteira().getMoedas().get(1).getTaxaCompra();
-//            double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-//            double NovoReal = Real - quantiaVender * (1 + taxaBitC);
-//            if (NovoBitcoin < 0){
-//                JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
-//            } else{
-//                
-//                double bitCotacao = quantiaComprar / cotacaoBit;
-//                double NovoBitcoin = Bitcoin + bitCotacao;
-//                investidor.getCarteira().getMoedas().get(1).setSaldo(NovoBitcoin);
-//                investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
-//                dao.atualizaReal(investidor);
-//                dao.atualizarcompraBit(investidor);
-//                JOptionPane.showMessageDialog(view, "Compra Realizado");
-//                view.getLblSaldoBitcoin().setText(String.valueOf(NovoBitcoin));
-//            } 
-//            
-//        } catch (SQLException e){
-//            JOptionPane.showMessageDialog(view, "Erro na Compra");
-//        }
+        try{
+            Connection conn = conexao.getConnection();
+            InvestidorDAO dao = new InvestidorDAO(conn);
+            String quantiavenderStr = view.getTxtValorEth().getText();
+            double quantiaVender = Double.parseDouble(quantiavenderStr);
+            double Ethereum = investidor.getCarteira().getMoedas().get(2).getSaldo();
+            double cotacaoEth = investidor.getCarteira().getMoedas().get(2).getCotacao();
+            double taxaEthV = investidor.getCarteira().getMoedas().get(2).getTaxaVenda();
+            double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
+            double ethCotacao = quantiaVender / cotacaoEth;
+            double NovoEthereum = Ethereum - ethCotacao;
+            if (NovoEthereum < 0){
+                JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
+            } else{
+                double NovoReal = Real + quantiaVender * (1 + taxaEthV);
+                investidor.getCarteira().getMoedas().get(2).setSaldo(NovoEthereum);
+                investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
+                dao.atualizaReal(investidor);
+                dao.atualizarvendaEth(investidor);
+                JOptionPane.showMessageDialog(view, "Venda Realizada");
+                view.getLblSaldoEthereum().setText(String.valueOf(NovoEthereum));
+                double EthparaReal = NovoEthereum * cotacaoEth;
+//                double BitReal = BitparaReal * (1 + taxaBitV);
+                view.getLblSaldoReal().setText(String.format("%.2f",EthparaReal));
+            } 
+            
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(view, "Erro na Venda");
+        }
     }
     
     public void voltarCompra(){

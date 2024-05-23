@@ -11,6 +11,7 @@ import model.Investidor;
  *
  * @author Rafael Becsei
  */
+
 public class VenderRipFrame extends javax.swing.JFrame {
     private Investidor investidor;
 
@@ -19,6 +20,12 @@ public class VenderRipFrame extends javax.swing.JFrame {
         controller = new ControllerVenderRip(this, investidor);
         lblSaldoRipple.setText(String.valueOf(investidor.getCarteira()
                                                .getMoedas().get(3).getSaldo()));
+        double Ripple = investidor.getCarteira().getMoedas().get(3).getSaldo();
+        double cotacaoRip = investidor.getCarteira().getMoedas().get(3).getCotacao();
+        double taxaRipV = investidor.getCarteira().getMoedas().get(3).getTaxaVenda();
+        double RipparaReal = Ripple * cotacaoRip;
+//        double Real = BitparaReal * (1 + taxaBitV);
+        lblSaldoReal.setText(String.format("%.2f", RipparaReal));
     }
 
     public Investidor getInvestidor() {
@@ -101,12 +108,12 @@ public class VenderRipFrame extends javax.swing.JFrame {
         this.lblVenderCripto = lblVenderCripto;
     }
 
-    public JTextField getTxtValorBit() {
-        return txtValorBit;
+    public JTextField getTxtValorRip() {
+        return txtValorRip;
     }
 
-    public void setTxtValorBit(JTextField txtValorBit) {
-        this.txtValorBit = txtValorBit;
+    public void setTxtValorRip(JTextField txtValorBit) {
+        this.txtValorRip = txtValorRip;
     }
 
     public JLabel getLblReal() {
@@ -124,10 +131,6 @@ public class VenderRipFrame extends javax.swing.JFrame {
     public void setLblSaldoReal(JLabel lblSaldoReal) {
         this.lblSaldoReal = lblSaldoReal;
     }
-    
-    
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -135,7 +138,7 @@ public class VenderRipFrame extends javax.swing.JFrame {
 
         lblVenderCripto = new javax.swing.JLabel();
         btVenderRip = new javax.swing.JButton();
-        txtValorBit = new javax.swing.JTextField();
+        txtValorRip = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -275,7 +278,7 @@ public class VenderRipFrame extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtValorBit, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtValorRip, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(btVenderRip, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -299,7 +302,7 @@ public class VenderRipFrame extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtValorBit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValorRip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(btVenderRip, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,7 +315,7 @@ public class VenderRipFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVenderRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVenderRipActionPerformed
-        controller.venderBit();
+        controller.venderRip();
     }//GEN-LAST:event_btVenderRipActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
@@ -336,6 +339,6 @@ public class VenderRipFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaldoReal;
     private javax.swing.JLabel lblSaldoRipple;
     private javax.swing.JLabel lblVenderCripto;
-    private javax.swing.JTextField txtValorBit;
+    private javax.swing.JTextField txtValorRip;
     // End of variables declaration//GEN-END:variables
 }

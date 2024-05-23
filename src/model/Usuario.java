@@ -9,6 +9,7 @@ public class Usuario {
     private String cpf, senha;
 
     public Usuario() {
+        
     }
 
     public Usuario(String cpf, String senha) {

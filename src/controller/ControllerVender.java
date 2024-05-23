@@ -1,13 +1,7 @@
 package controller;
 
-import DAO.Conexao;
-import DAO.InvestidorDAO;
-import java.sql.Connection;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import model.Investidor;
 import view.VenderFrame;
-import view.LoginFrame;
 
 /**
  *
@@ -17,7 +11,6 @@ import view.LoginFrame;
 public class ControllerVender {
     private VenderFrame view;
     private Investidor investidor;
-    private LoginFrame lf;
     
     public ControllerVender(VenderFrame view) {
         this.view = view;
@@ -31,5 +24,4 @@ public class ControllerVender {
     public void voltarCompra(){
         view.setVisible(false);
     }
-    
 }

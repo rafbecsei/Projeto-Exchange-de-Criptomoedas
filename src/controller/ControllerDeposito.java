@@ -43,7 +43,6 @@ public class ControllerDeposito {
             dao.atualizardeposito(investidor);
             JOptionPane.showMessageDialog(view, "Depósito Realizado");
             view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
-             
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro no Depósito");
         }

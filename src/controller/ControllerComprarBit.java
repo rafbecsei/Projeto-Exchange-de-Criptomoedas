@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ComprarBitFrame;
-import view.LoginFrame;
 
 
 /**
  *
  * @author Rafael Becsei
  */
+
 public class ControllerComprarBit {
     private ComprarBitFrame view;
     private Investidor investidor;
@@ -43,7 +43,6 @@ public class ControllerComprarBit {
             if (NovoReal < 0){
                 JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
             } else{
-                
                 double bitCotacao = quantiaComprar / cotacaoBit;
                 double NovoBitcoin = Bitcoin + bitCotacao;
                 investidor.getCarteira().getMoedas().get(1).setSaldo(NovoBitcoin);

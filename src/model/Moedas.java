@@ -22,8 +22,6 @@ public class Moedas {
         this.taxaC = taxaC;
         this.taxaV = taxaV;
     }
-    
-    
 
     public Moedas(double saldo, double cotacao) {
         this.saldo = saldo;

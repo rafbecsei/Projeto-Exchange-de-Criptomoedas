@@ -7,16 +7,15 @@ import model.Investidor;
 import java.sql.Connection;
 import java.sql.SQLException;
 import view.ComprarRipFrame;
-import view.LoginFrame;
 
 /**
  *
  * @author Rafael Becsei
  */
+
 public class ControllerComprarRip {
     private ComprarRipFrame view;
     private Investidor investidor;
-    private LoginFrame lf;
 
     public ControllerComprarRip(ComprarRipFrame view, Investidor investidor) {
         this.view = view;
@@ -43,7 +42,6 @@ public class ControllerComprarRip {
             if (NovoReal < 0){
                 JOptionPane.showMessageDialog(view, "Saldo Insuficiente");
             } else{
-                
                 double ripCotacao = quantiaComprar / cotacaoRip;
                 double NovoRipple = Ripple + ripCotacao;
                 investidor.getCarteira().getMoedas().get(3).setSaldo(NovoRipple);
