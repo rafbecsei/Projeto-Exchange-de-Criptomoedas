@@ -66,7 +66,8 @@ public class Moedas {
 
     @Override
     public String toString() {
-        return "Moedas{" + "saldo=" + saldo + ", cotacao=" + cotacao + ", taxaC=" + taxaC + ", taxaV=" + taxaV + '}';
+        return "Moedas{" + "saldo=" + saldo + ", cotacao=" + cotacao + 
+                                ", taxaC=" + taxaC + ", taxaV=" + taxaV + '}';
     }
     
     

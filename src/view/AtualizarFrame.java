@@ -33,15 +33,19 @@ public class AtualizarFrame extends javax.swing.JFrame {
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                investidor.getCarteira().getMoedas().get(1).setCotacao(cotacaoBit);
-                investidor.getCarteira().getMoedas().get(2).setCotacao(cotacaoEth);
-                investidor.getCarteira().getMoedas().get(3).setCotacao(cotacaoRip);
-                lblBitcoinAtualizado.setText(String.valueOf(investidor.getCarteira()
-                                            .getMoedas().get(1).getCotacao()));
-                lblEthereumAtualizado.setText(String.valueOf(investidor.getCarteira()
+                investidor.getCarteira().getMoedas().get(1)
+                                                        .setCotacao(cotacaoBit);
+                investidor.getCarteira().getMoedas().get(2)
+                                                        .setCotacao(cotacaoEth);
+                investidor.getCarteira().getMoedas().get(3)
+                                                        .setCotacao(cotacaoRip);
+                lblBitcoinAtualizado.setText(String.valueOf(investidor
+                               .getCarteira().getMoedas().get(1).getCotacao()));
+                lblEthereumAtualizado.setText(String.valueOf(investidor
+                                                                  .getCarteira()
                                             .getMoedas().get(2).getCotacao()));
-                lblRippleAtualizado.setText(String.valueOf(investidor.getCarteira()
-                                            .getMoedas().get(3).getCotacao()));
+                lblRippleAtualizado.setText(String.valueOf(investidor
+                              .getCarteira().getMoedas().get(3).getCotacao()));
             } else {
                 JOptionPane.showMessageDialog(this, "Erro!");
             }

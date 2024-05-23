@@ -71,10 +71,14 @@ public class InvestidorDAO {
             statement.setString(2, investidor.getNome());
             statement.setString(3, investidor.getCpf());
             statement.setString(4, investidor.getSenha());
-            statement.setDouble(5, investidor.getCarteira().getMoedas().get(0).getSaldo());
-            statement.setDouble(6, investidor.getCarteira().getMoedas().get(1).getSaldo());
-            statement.setDouble(7, investidor.getCarteira().getMoedas().get(2).getSaldo());
-            statement.setDouble(8, investidor.getCarteira().getMoedas().get(3).getSaldo());
+            statement.setDouble(5, investidor.getCarteira().getMoedas().get(0)
+                                                                   .getSaldo());
+            statement.setDouble(6, investidor.getCarteira().getMoedas().get(1)
+                                                                   .getSaldo());
+            statement.setDouble(7, investidor.getCarteira().getMoedas().get(2)
+                                                                   .getSaldo());
+            statement.setDouble(8, investidor.getCarteira().getMoedas().get(3)
+                                                                   .getSaldo());
             statement.setDouble(9, cotacaoBit);
             statement.setDouble(10, cotacaoEth);
             statement.setDouble(11, cotacaoRip);
@@ -90,20 +94,24 @@ public class InvestidorDAO {
                 double cotacaoEth = resultadoCotacoes.getDouble("cotacaoEth");
                 double cotacaoRip = resultadoCotacoes.getDouble("cotacaoRip");
                 
-                String sql = "insert into pessoa (id, nome, cpf, senha, \"real\", "
-                   + "\"bitcoin\", \"ethereum\", \"ripple\", \"cotacaoBit\", "
-                   + "\"cotacaoEth\", \"cotacaoRip\") " 
-                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "insert into pessoa (id, nome, cpf, senha, "
+                        + "\"real\", \"bitcoin\", \"ethereum\", \"ripple\", "
+                        + "\"cotacaoBit\", \"cotacaoEth\", \"cotacaoRip\") " 
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement statement = conn.prepareStatement(sql);
                 statement.setInt(1, novoId);
                 statement.setString(2, investidor.getNome());
                 statement.setString(3, investidor.getCpf());
                 statement.setString(4, investidor.getSenha());
-                statement.setDouble(5, investidor.getCarteira().getMoedas().get(0).getSaldo());
-                statement.setDouble(6, investidor.getCarteira().getMoedas().get(1).getSaldo());
-                statement.setDouble(7, investidor.getCarteira().getMoedas().get(2).getSaldo());
-                statement.setDouble(8, investidor.getCarteira().getMoedas().get(3).getSaldo());
+                statement.setDouble(5, investidor.getCarteira().getMoedas()
+                                                            .get(0).getSaldo());
+                statement.setDouble(6, investidor.getCarteira().getMoedas()         
+                                                            .get(1).getSaldo());
+                statement.setDouble(7, investidor.getCarteira().getMoedas()
+                                                            .get(2).getSaldo());
+                statement.setDouble(8, investidor.getCarteira().getMoedas()
+                                                            .get(3).getSaldo());
                 statement.setDouble(9, cotacaoBit);
                 statement.setDouble(10, cotacaoEth);
                 statement.setDouble(11, cotacaoRip);
@@ -119,7 +127,8 @@ public class InvestidorDAO {
     public void atualizardeposito(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"real\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(0).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(0)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -127,7 +136,8 @@ public class InvestidorDAO {
     public void atualizaReal(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"real\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(0).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(0)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -135,7 +145,8 @@ public class InvestidorDAO {
     public void atualizarcompraBit(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"bitcoin\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -143,7 +154,8 @@ public class InvestidorDAO {
     public void atualizarcompraEth(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"ethereum\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(2).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(2)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -151,7 +163,8 @@ public class InvestidorDAO {
     public void atualizarcompraRip(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"ripple\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(3).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(3)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -159,7 +172,8 @@ public class InvestidorDAO {
     public void atualizarvendaBit(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"bitcoin\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -167,7 +181,8 @@ public class InvestidorDAO {
     public void atualizarvendaEth(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"ethereum\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(2).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(2)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
@@ -175,17 +190,22 @@ public class InvestidorDAO {
     public void atualizarvendaRip(Investidor investidor) throws SQLException{
         String sql = "update pessoa set \"ripple\" = ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(3).getSaldo());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(3)
+                                                                   .getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
     }
     
     public void atualizaCotacao(Investidor investidor) throws SQLException{
-        String sql = "update pessoa set \"cotacaoBit\" = ?, \"cotacaoEth\" = ?, \"cotacaoRip\" = ?";
+        String sql = "update pessoa set \"cotacaoBit\" = ?, \"cotacaoEth\" = ?,"
+                                                        + " \"cotacaoRip\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getCotacao());
-        statement.setDouble(2, investidor.getCarteira().getMoedas().get(2).getCotacao());
-        statement.setDouble(3, investidor.getCarteira().getMoedas().get(3).getCotacao());
+        statement.setDouble(1, investidor.getCarteira().getMoedas().get(1)  
+                                                                .getCotacao());
+        statement.setDouble(2, investidor.getCarteira().getMoedas().get(2)
+                                                                .getCotacao());
+        statement.setDouble(3, investidor.getCarteira().getMoedas().get(3)
+                                                                .getCotacao());
         statement.executeUpdate();
         conn.close();
     }
@@ -202,11 +222,12 @@ public class InvestidorDAO {
     }
     
     public void extrato(Investidor investidor, String sinal, String transacao, 
-                                double valor, String moeda, double taxa, double cotacao, int idinv) throws SQLException{
+                                double valor, String moeda, double taxa, double 
+                                        cotacao, int idinv) throws SQLException{
         int idlog = gerarIdlog();
-        String sql = "insert into extrato (idlog, idinv, sinal, transacao, \"valor\", moeda, "
-                + "\"taxa\", \"cotacao\", \"real\", \"bitcoin\", \"ethereum\", "
-                + "\"ripple\", data) "
+        String sql = "insert into extrato (idlog, idinv, sinal, transacao, "
+                + "\"valor\", moeda, \"taxa\", \"cotacao\", \"real\", "
+                + "\"bitcoin\", \"ethereum\", \"ripple\", data) "
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
         
@@ -218,15 +239,20 @@ public class InvestidorDAO {
         statement.setString(6, moeda);
         statement.setDouble(7, taxa);
         statement.setDouble(8, cotacao);
-        statement.setDouble(9, investidor.getCarteira().getMoedas().get(0).getSaldo());
-        statement.setDouble(10, investidor.getCarteira().getMoedas().get(1).getSaldo());
-        statement.setDouble(11, investidor.getCarteira().getMoedas().get(2).getSaldo());
-        statement.setDouble(12, investidor.getCarteira().getMoedas().get(3).getSaldo());
-        statement.setString(13, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        statement.setDouble(9, investidor.getCarteira().getMoedas().get(0)
+                                                                   .getSaldo());
+        statement.setDouble(10, investidor.getCarteira().getMoedas().get(1)
+                                                                   .getSaldo());
+        statement.setDouble(11, investidor.getCarteira().getMoedas().get(2) 
+                                                                   .getSaldo());
+        statement.setDouble(12, investidor.getCarteira().getMoedas().get(3)
+                                                                   .getSaldo());
+        statement.setString(13, LocalDateTime.now().format(DateTimeFormatter
+                                            .ofPattern("dd/MM/yyyy HH:mm:ss")));
         statement.execute();
     }
     
-    public int maxIdlog() throws SQLException {
+    public int consultaridlogsInv() throws SQLException {
         String sql = "select max(idlog) from extrato";
         PreparedStatement statement = conn.prepareStatement(sql);
         ResultSet resultado = statement.executeQuery();
@@ -239,7 +265,8 @@ public class InvestidorDAO {
         return novoId;
     }
     
-    public ResultSet consultarExtrato(Investidor investidor, int idlog, int idinv) throws SQLException {
+    public ResultSet consultarExtrato(Investidor investidor, int idlog, 
+                                                int idinv) throws SQLException {
         String sql = "select * from extrato where idlog = ? and idinv = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, idlog);

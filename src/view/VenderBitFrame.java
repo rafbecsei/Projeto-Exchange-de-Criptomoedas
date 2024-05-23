@@ -20,10 +20,11 @@ public class VenderBitFrame extends javax.swing.JFrame {
         lblSaldoBitcoin.setText(String.valueOf(investidor.getCarteira()
                                                .getMoedas().get(1).getSaldo()));
         double Bitcoin = investidor.getCarteira().getMoedas().get(1).getSaldo();
-        double cotacaoBit = investidor.getCarteira().getMoedas().get(1).getCotacao();
-        double taxaBitV = investidor.getCarteira().getMoedas().get(1).getTaxaVenda();
+        double cotacaoBit = investidor.getCarteira().getMoedas().get(1)
+                                                                .getCotacao();
+        double taxaBitV = investidor.getCarteira().getMoedas().get(1)
+                                                                .getTaxaVenda();
         double BitparaReal = Bitcoin * cotacaoBit;
-//        double Real = BitparaReal * (1 + taxaBitV);
         lblSaldoReal.setText(String.format("%.2f", BitparaReal));
     }
 

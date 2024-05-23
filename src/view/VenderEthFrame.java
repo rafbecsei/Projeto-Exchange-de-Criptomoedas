@@ -21,10 +21,11 @@ public class VenderEthFrame extends javax.swing.JFrame {
         lblSaldoEthereum.setText(String.valueOf(investidor.getCarteira()
                                                .getMoedas().get(2).getSaldo()));
         double Ethereum = investidor.getCarteira().getMoedas().get(2).getSaldo();
-        double cotacaoEth = investidor.getCarteira().getMoedas().get(2).getCotacao();
-        double taxaEthV = investidor.getCarteira().getMoedas().get(2).getTaxaVenda();
+        double cotacaoEth = investidor.getCarteira().getMoedas().get(2)
+                                                                .getCotacao();
+        double taxaEthV = investidor.getCarteira().getMoedas().get(2)
+                                                                .getTaxaVenda();
         double EthparaReal = Ethereum * cotacaoEth;
-//        double Real = BitparaReal * (1 + taxaBitV);
         lblSaldoReal.setText(String.format("%.2f", EthparaReal));
     }
 

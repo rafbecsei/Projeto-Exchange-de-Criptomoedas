@@ -33,9 +33,12 @@ public class VenderFrame extends javax.swing.JFrame {
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
-                this.getLblBitcoinAtualizado().setText(String.valueOf(cotacaoBit));
-                this.getLblEthereumAtualizado().setText(String.valueOf(cotacaoEth));
-                this.getLblRippleAtualizado().setText(String.valueOf(cotacaoRip));
+                this.getLblBitcoinAtualizado().setText(String
+                                                        .valueOf(cotacaoBit));
+                this.getLblEthereumAtualizado().setText(String
+                                                        .valueOf(cotacaoEth));
+                this.getLblRippleAtualizado().setText(String
+                                                        .valueOf(cotacaoRip));
             } else {
                 JOptionPane.showMessageDialog(this, "Erro!");
             }

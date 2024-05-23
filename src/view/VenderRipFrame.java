@@ -21,10 +21,11 @@ public class VenderRipFrame extends javax.swing.JFrame {
         lblSaldoRipple.setText(String.valueOf(investidor.getCarteira()
                                                .getMoedas().get(3).getSaldo()));
         double Ripple = investidor.getCarteira().getMoedas().get(3).getSaldo();
-        double cotacaoRip = investidor.getCarteira().getMoedas().get(3).getCotacao();
-        double taxaRipV = investidor.getCarteira().getMoedas().get(3).getTaxaVenda();
+        double cotacaoRip = investidor.getCarteira().getMoedas().get(3)
+                                                                .getCotacao();
+        double taxaRipV = investidor.getCarteira().getMoedas().get(3)
+                                                                .getTaxaVenda();
         double RipparaReal = Ripple * cotacaoRip;
-//        double Real = BitparaReal * (1 + taxaBitV);
         lblSaldoReal.setText(String.format("%.2f", RipparaReal));
     }
 

@@ -56,7 +56,8 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nome=" + nome + ", cpf=" + cpf + ", senha=" + senha + '}';
+        return "Usuario{" + "nome=" + nome + ", cpf=" + cpf + ", senha=" + 
+                                                                    senha + '}';
     }
 
     
