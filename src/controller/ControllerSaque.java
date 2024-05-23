@@ -4,6 +4,7 @@ import DAO.Conexao;
 import DAO.InvestidorDAO;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import model.Investidor;
 import view.SacarFrame;
 import java.sql.SQLException;
@@ -30,20 +31,25 @@ public class ControllerSaque {
     public void SaqueReal(){
         Conexao conexao = new Conexao();
         try{
-            String quantiaSacadaStr = view.getTxtQuantiaSaque().getText();
-            double quantiaSacada = Double.parseDouble(quantiaSacadaStr);
-            double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
-            if (quantiaSacada > Real){
-                JOptionPane.showMessageDialog(view, "Valor Excede Saldo");
-            } else{
-                double NovoReal = Real - quantiaSacada;
-                investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
-                JOptionPane.showMessageDialog(view, "Saque Realizado");
-                view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
-            }
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
-            dao.atualizardeposito(investidor);
+            ResultSet res = dao.consultarSenha(investidor);
+            if(res.next()){
+                int idinv = res.getInt("id");
+                String quantiaSacadaStr = view.getTxtQuantiaSaque().getText();
+                double quantiaSacada = Double.parseDouble(quantiaSacadaStr);
+                double Real = investidor.getCarteira().getMoedas().get(0).getSaldo();
+                if (quantiaSacada > Real){
+                    JOptionPane.showMessageDialog(view, "Valor Excede Saldo");
+                } else{
+                    double NovoReal = Real - quantiaSacada;
+                    investidor.getCarteira().getMoedas().get(0).setSaldo(NovoReal);
+                    JOptionPane.showMessageDialog(view, "Saque Realizado");
+                    view.getLblNovoSaldoPessoa().setText(String.valueOf(NovoReal));
+                    dao.atualizardeposito(investidor);
+                    dao.extrato(investidor, "-", "Saque", quantiaSacada, "Real", 0, 0, idinv);
+                }
+            }
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro no Saque");
         }

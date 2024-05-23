@@ -60,7 +60,7 @@ public class ControllerLogin {
                 mf.setVisible(true);
                 view.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(view, "Dados Incorretos");
+                JOptionPane.showMessageDialog(view, "Erro no Login");
             }
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Erro na conexão");

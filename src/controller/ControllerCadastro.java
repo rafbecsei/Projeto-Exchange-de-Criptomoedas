@@ -30,6 +30,12 @@ public class ControllerCadastro {
         String cpf = view.getTxtCpf().getText();
         String senha = view.getTxtSenha().getText();
         
+        if (!validarCPF(cpf) || !validarSenha(senha)) {
+            JOptionPane.showMessageDialog(view, "CPF deve conter 11 dígitos e a "
+                                                + "senha deve conter 6 dígitos.");
+            return;
+        }
+        
         Investidor investidor = new Investidor(nome, cpf, senha);
         Conexao conexao = new Conexao();
         
@@ -42,5 +48,12 @@ public class ControllerCadastro {
         } catch (SQLException e){
             JOptionPane.showMessageDialog(view, "Falha no Cadastrado!");
         }
+    }
+    private boolean validarCPF(String cpf) {
+        return cpf.length() == 11 && cpf.chars().allMatch(Character::isDigit);
+    }
+    
+    private boolean validarSenha(String senha) {
+        return senha.length() == 6 && senha.chars().allMatch(Character::isDigit);
     }
 }

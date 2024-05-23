@@ -7,6 +7,7 @@ package model;
 
 public class Pessoa {
     private String nome, cpf, senha;
+    private int id;
 
     public Pessoa() {
         
@@ -16,6 +17,7 @@ public class Pessoa {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
+//        this.id = id;
     }
 
     public String getNome() {
@@ -41,6 +43,16 @@ public class Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+    
+    
 
     @Override
     public String toString() {

@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import model.Investidor;
 
 
@@ -25,16 +27,6 @@ public class InvestidorDAO {
         stmt.setString(2, investidor.getSenha());
         return stmt.executeQuery();
     }
-    
-//    public ResultSet consultar(Investidor investidor) throws SQLException{
-//        String sql = "select * from pessoa where cpf = ? and senha = ?";
-//        PreparedStatement statement = conn.prepareStatement(sql);
-//        statement.setString(1, investidor.getCpf());
-//        statement.setString(2, investidor.getSenha());
-//        statement.execute();
-//        ResultSet resultado = statement.getResultSet();
-//        return resultado;
-//    }
     
     private int gerarNovoId() throws SQLException {
         String sql = "select max(id) from pessoa";
@@ -130,7 +122,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(0).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizaReal(Investidor investidor) throws SQLException{
@@ -147,7 +138,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizarcompraEth(Investidor investidor) throws SQLException{
@@ -156,7 +146,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(2).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizarcompraRip(Investidor investidor) throws SQLException{
@@ -165,7 +154,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(3).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizarvendaBit(Investidor investidor) throws SQLException{
@@ -174,7 +162,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(1).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizarvendaEth(Investidor investidor) throws SQLException{
@@ -183,7 +170,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(2).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizarvendaRip(Investidor investidor) throws SQLException{
@@ -192,7 +178,6 @@ public class InvestidorDAO {
         statement.setDouble(1, investidor.getCarteira().getMoedas().get(3).getSaldo());
         statement.setString(2, investidor.getCpf());
         statement.executeUpdate();
-        conn.close();
     }
     
     public void atualizaCotacao(Investidor investidor) throws SQLException{
@@ -205,7 +190,62 @@ public class InvestidorDAO {
         conn.close();
     }
     
-    public void extrato() throws SQLException{
+    private int gerarIdlog() throws SQLException {
+        String sql = "select max(idlog) from extrato";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resultado = statement.executeQuery();
+        int novoId = 0;
+        if (resultado.next()) {
+            novoId = resultado.getInt(1) + 1;
+        }
+        return novoId;
+    }
+    
+    public void extrato(Investidor investidor, String sinal, String transacao, 
+                                double valor, String moeda, double taxa, double cotacao, int idinv) throws SQLException{
+        int idlog = gerarIdlog();
+        String sql = "insert into extrato (idlog, idinv, sinal, transacao, \"valor\", moeda, "
+                + "\"taxa\", \"cotacao\", \"real\", \"bitcoin\", \"ethereum\", "
+                + "\"ripple\", data) "
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = conn.prepareStatement(sql);
         
+        statement.setInt(1, idlog);
+        statement.setInt(2, idinv);
+        statement.setString(3, sinal);
+        statement.setString(4, transacao);
+        statement.setDouble(5, valor);
+        statement.setString(6, moeda);
+        statement.setDouble(7, taxa);
+        statement.setDouble(8, cotacao);
+        statement.setDouble(9, investidor.getCarteira().getMoedas().get(0).getSaldo());
+        statement.setDouble(10, investidor.getCarteira().getMoedas().get(1).getSaldo());
+        statement.setDouble(11, investidor.getCarteira().getMoedas().get(2).getSaldo());
+        statement.setDouble(12, investidor.getCarteira().getMoedas().get(3).getSaldo());
+        statement.setString(13, LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        statement.execute();
+    }
+    
+    public int maxIdlog() throws SQLException {
+        String sql = "select max(idlog) from extrato";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        ResultSet resultado = statement.executeQuery();
+        int novoId = 0;
+        if (resultado.next()) {
+            novoId = resultado.getInt(1);
+        } else{
+            return novoId = 0;
+        }
+        return novoId;
+    }
+    
+    public ResultSet consultarExtrato(Investidor investidor, int idlog, int idinv) throws SQLException {
+        String sql = "select * from extrato where idlog = ? and idinv = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idlog);
+        statement.setInt(2, idinv);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
 }
