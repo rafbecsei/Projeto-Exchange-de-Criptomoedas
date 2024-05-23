@@ -31,6 +31,8 @@ public class VenderFrame extends javax.swing.JFrame {
             ResultSet res = dao.consultarSenha(investidor);
             if(res.next()){
                 
+                this.investidor = investidor;
+                
                 double cotacaoBit = res.getDouble("cotacaoBit");
                 double cotacaoEth = res.getDouble("cotacaoEth");
                 double cotacaoRip = res.getDouble("cotacaoRip");
@@ -503,19 +505,18 @@ public class VenderFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btVendaBitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaBitActionPerformed
-        //        ComprarBitFrame bf = new ComprarBitFrame(investidor, lf);
-//        VenderBitFrame bf = new VenderBitFrame(investidor);
-//        bf.setVisible(true);
+        VenderBitFrame bf = new VenderBitFrame(investidor);
+        bf.setVisible(true);
     }//GEN-LAST:event_btVendaBitActionPerformed
 
     private void btVendaEthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaEthActionPerformed
-//        VenderEthFrame ef = new VenderEthFrame(investidor);
-//        ef.setVisible(true);
+        VenderEthFrame ef = new VenderEthFrame(investidor);
+        ef.setVisible(true);
     }//GEN-LAST:event_btVendaEthActionPerformed
 
     private void btVendaRipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaRipActionPerformed
-//        VenderRipFrame rf = new VenderRipFrame(investidor);
-//        rf.setVisible(true);
+        VenderRipFrame rf = new VenderRipFrame(investidor);
+        rf.setVisible(true);
     }//GEN-LAST:event_btVendaRipActionPerformed
     
     private ControllerVender controller;

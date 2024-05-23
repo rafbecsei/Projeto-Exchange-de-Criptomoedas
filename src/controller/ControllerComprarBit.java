@@ -17,7 +17,6 @@ import view.LoginFrame;
 public class ControllerComprarBit {
     private ComprarBitFrame view;
     private Investidor investidor;
-    private LoginFrame lf;
 
     public ControllerComprarBit(ComprarBitFrame view, Investidor investidor) {
         this.view = view;
