@@ -1,4 +1,4 @@
-# ProjetoJava
+# Exchange de Criptomoedas em Java
 
 Desenvolvimento de um programa utilizando interface gráfica para a criação de uma Exchange de Criptomoedas, ou seja, uma plataforma onde é possível comprar e vender criptomoedas, nesse caso, Bitcoin, Ethereum e Ripple. Nesse programa deve haver as seguintes operações:
 
